@@ -1,0 +1,7 @@
+//employees post
+{
+	"fname": "Nicolas",
+	"lname": "Von",
+	"email": "nico@gmail.com",
+	"dni": 42475090
+}

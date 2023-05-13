@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const { Sequelize } = require("sequelize");
 dotenv.config();
 
-// const {} = require("./models/index");
+const { Employees } = require("./models/index");
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 
@@ -14,20 +14,13 @@ const db = new Sequelize(
 	}
 );
 
-// Activities(db);
+Employees(db);
 
-// const { activities, blog, client, trainer } = db.models;
+// const { employees } = db.models;
 
-// activities.belongsToMany(client, { through: "ActivitiesClient" });
-// client.belongsToMany(activities, { through: "ActivitiesClient" });
-
-// trainer.belongsToMany(activities, { through: "ActivitiesTrainer" });
-// activities.belongsToMany(trainer, { through: "ActivitiesTrainer" });
-
-// trainer.hasMany(blog);
-// blog.belongsTo(trainer);
+// console.log(db.models);
 
 module.exports = {
-	// ...db.models,
+	...db.models,
 	conn: db,
 };
