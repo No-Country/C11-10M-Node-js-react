@@ -1,5 +1,11 @@
-const {findAllEmployees} = require("./employee")
+const findAllEmployees = require("./employees/findAllEmployees");
+const postEmployee = require("./employees/postEmployee");
+const deleteEmployee = require("./employees/deleteEmployee");
+const findEmployeeByID = require("./employees/findEmployeeByID");
 
 module.exports = {
-  findAllEmployees
-}
+	findAllEmployees,
+	postEmployee,
+	deleteEmployee,
+	findEmployeeByID,
+};

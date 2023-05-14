@@ -3,7 +3,7 @@ const { employees } = require("../../db");
 const createEmployee = async (req, res) => {
 	try {
 		const { fname, lname, email, dni } = req.body;
-		const newEmployee = await employees.create({
+		await employees.create({
 			fname,
 			lname,
 			email,
