@@ -6,8 +6,6 @@ const {
 	findEmployeeByID,
 } = require("../controllers/index.js");
 
-// const {} = require("../controllers/index");
-
 const router = Router();
 
 router.get("/", async (req, res) => {

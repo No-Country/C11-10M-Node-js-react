@@ -5,3 +5,13 @@
 	"email": "nico@gmail.com",
 	"dni": 42475090
 }
+
+//wage post
+{
+	"nincome": 100,
+	"nhours": 48,
+	"ehours": 2,
+	"deductions": 1000,
+	"plus": true,
+	"payment": 20
+}

@@ -25,6 +25,7 @@ const employees = (sequelize) => {
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
+		//*ideas: position, start date
 	});
 };
 

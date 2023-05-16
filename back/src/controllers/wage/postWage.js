@@ -1,8 +1,6 @@
 const { wage } = require("../../db");
 
-
 const createWage = async (req, res) => {
-
     try{
         const { nincome,nhours,ehours,deductions,plus,payment } = req.body;
         await wage.create({
@@ -15,9 +13,9 @@ const createWage = async (req, res) => {
         })
         res.status(200).json({ success: true });
     }
-    catch{
+    catch(err){
         res.status(400).json({ message: err.message });
     }
 }
 
-module.export=createWage;
+module.exports = createWage;
