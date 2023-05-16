@@ -1,7 +1,7 @@
-const {wage}=require("../../db")
+const {wage} = require("../../db")
 
 
-const delateWage=async(req,res)=>{
+const deleteWage = async(req,res)=>{
     try{
         const {id}=req.params
         await wage.destroy({
@@ -12,7 +12,9 @@ const delateWage=async(req,res)=>{
 
         res.status(200).json({sucess:true})
     }
-    catch{
-        res.status(400).json()
+    catch(err){
+        res.status(400).json({ mensage: err.mensage });
     }
 }
+
+module.exports = deleteWage
