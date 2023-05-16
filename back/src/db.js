@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const { Sequelize } = require("sequelize");
 dotenv.config();
 
-const { Employees } = require("./models/index");
+const { Employees, Wage} = require("./models/index");
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 
@@ -15,6 +15,7 @@ const db = new Sequelize(
 );
 
 Employees(db);
+Wage(db);
 
 // const { employees } = db.models;
 
