@@ -1,3 +1,8 @@
+/*these file is the principal place where the project is deployed, if is true than index.js is connect to option dev and start to use the script properties associated to npm command, those section(index.js)
+just is used like place to redirect to the server localhost:PORT(for default 3001 include in .env file)
+
+*/
+
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
@@ -32,5 +37,10 @@ server.use((err, req, res, next) => {
 	console.error(err);
 	res.status(status).send(message);
 });
+
+server.get("/", (req,res)=>{
+	res.send("<h1>hola</h1>")
+})
+
 
 module.exports = server;
