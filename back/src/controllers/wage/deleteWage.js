@@ -5,9 +5,7 @@ const deleteWage = async(req,res)=>{
     try{
         const {id}=req.params
         await wage.destroy({
-            where:{
-                id
-            },
+            where:{id}
         });
 
         res.status(200).json({sucess:true})

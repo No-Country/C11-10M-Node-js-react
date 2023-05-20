@@ -6,7 +6,6 @@ must be configurate in app.js
 const server = require("./app.js");
 const { conn } = require("./db.js");
 
-
 require("dotenv").config();
 
 conn
@@ -17,4 +16,3 @@ conn
 		});
 	})
 	.catch((error) => console.log(error.message));
-
