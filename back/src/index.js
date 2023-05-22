@@ -9,7 +9,7 @@ const { conn } = require("./db.js");
 require("dotenv").config();
 
 conn
-	.sync({ force: true })
+	.sync({ force: false })
 	.then(async () => {
 		server.listen(process.env.PORT, () => {
 			console.log(`Listening at: https://localhost:${process.env.PORT}/`);

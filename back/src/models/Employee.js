@@ -44,7 +44,13 @@ const employees = (sequelize) => {
 				allowNull: false,
 			},
 			position: {
-				type: DataTypes.STRING,
+				type: DataTypes.ENUM(
+					"Oficial esp",
+					"Oficial med",
+					"Ayudante",
+					"Sereno",
+					"Otro"
+				),
 				allowNull: false,
 			},
 			startDate: {
@@ -56,15 +62,15 @@ const employees = (sequelize) => {
 				allowNull: false,
 			},
 			civilStatus: {
-				type: DataTypes.ENUM("Soltero", "Casado"),
+				type: DataTypes.ENUM("Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"),
 				allowNull: false,
 			},
 			children: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.ENUM("0", "1", "2", "3", "4", "5", "6+"),
 				allowNull: false,
 			},
 			contractType: {
-				type: DataTypes.ENUM("A tiempo parcial", "A tiempo completo"),
+				type: DataTypes.ENUM("Permanente", "Temporal"),
 				allowNull: false,
 			},
 			numberART: {

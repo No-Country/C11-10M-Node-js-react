@@ -6,14 +6,15 @@
 	"dni": 43475091,
 	"cuil": 20434750916,
 	"province": "cordoba",
-	"position": "Obrero",
+	"position": "Oficial esp",
 	"startDate": "2023-05-05",
 	"birthDate": "1998-05-05",
-	"children": 1,
-	"contractType": "A tiempo parcial",
+	"children": "1",
+	"contractType": "Permanente",
 	"numberART": 123456789,
-	"civilStatus": "Soltero"
+	"civilStatus": "Soltero/a"
 }
+
 
 
 //wage post

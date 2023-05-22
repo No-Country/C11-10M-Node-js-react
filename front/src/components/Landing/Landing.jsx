@@ -1,12 +1,23 @@
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { stylesButton } from '../../styles';
+// import styled from 'styled-components';
 
 const Landing = () => {
   const navigate = useNavigate();
-  const Separator=()=>{
+  // const Separator=()=>{
   
-  }
+  // }
   return (
+    <div className='flex flex-col gap-2 pl-2'>
+      <h1 className='font-bold text-3xl'>Landing</h1>
+      <div className='flex gap-10'>
+        <button onClick={() => navigate('/home')}
+        className={stylesButton + " px-8"}>Ingresar</button>
+        <button onClick={() => navigate('/signup')}
+        className={stylesButton + " px-8"}>Registrarse</button>
+        <button onClick={() => navigate('/registerEmployee')}
+        className={stylesButton + " px-8"}>Agregar Empleado</button>
+      </div>
     <div className='grid place-items-center m-auto mt-12 mb-12' >
       
       <div className='box grid place-items-center m-auto mb-5'>
@@ -35,12 +46,9 @@ const Landing = () => {
         </div>
 
       </div>
-      
-
-
-
-
-
+  
+    </div>
+    
     </div>
   );
 };
