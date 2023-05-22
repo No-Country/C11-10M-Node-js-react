@@ -6,15 +6,13 @@ const Landing = () => {
 
   return (
     <div >
-      <h1>Landing</h1>
+      <h1 className='text-3xl text-orange-700'>Landing</h1>
       <button onClick={() => navigate('/home')}>Ingresar</button>
       <button onClick={() => navigate('/register')}>Register</button>
     </div>
   );
 };
 
-const StyledLanding = styled.div`
-width: 100%;
-`;
+
 
 export default Landing;
