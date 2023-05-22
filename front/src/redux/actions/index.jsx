@@ -21,3 +21,16 @@ export const postUser = (inputs) => async () => {
     return err
   }
 }
+
+export const isLogin = (inputs) => async (dispatch) => {
+  try{
+    await axios.post("/users/login", inputs)
+
+    localStorage.setItem("isLogin", true)
+
+    return dispatch({ type: "LOGIN" })
+  }
+  catch(err){
+    return err
+  }
+}
