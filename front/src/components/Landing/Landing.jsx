@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Landing = () => {
-  
   const navigate = useNavigate();
 
   return (
@@ -13,5 +13,8 @@ const Landing = () => {
   );
 };
 
+const StyledLanding = styled.div`
+width: 100%;
+`;
 
 export default Landing;
