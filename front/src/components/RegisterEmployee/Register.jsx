@@ -52,7 +52,6 @@ const Register = () => {
 
 		if (!find) {
 			dispatch(postEmployee(inputs)).then((data) => {
-				console.log(data)
 				if (data.status && data.status === 200) {
 					swal({
 						title: "Empleado registrado",
