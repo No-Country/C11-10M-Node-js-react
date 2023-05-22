@@ -15,6 +15,7 @@ const findAllUsers = require("./user/findAllUsers");
 const findUserByID = require("./user/findUserByID");
 const postUser = require("./user/postUsers");
 const deleteUser = require("./user/deleteUser");
+const login = require("./user/login");
 
 module.exports = {
 	findAllEmployees,
@@ -29,4 +30,5 @@ module.exports = {
 	findUserByID,
 	postUser,
 	deleteUser,
+	login,
 };

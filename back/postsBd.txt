@@ -16,7 +16,6 @@
 }
 
 
-
 //wage post
 {
 	"nincome": 100,
