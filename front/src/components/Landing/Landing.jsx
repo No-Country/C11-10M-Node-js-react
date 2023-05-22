@@ -5,10 +5,11 @@ const Landing = () => {
   const navigate = useNavigate();
 
   return (
-    <>
-    <h1>Landing</h1>
-    <button onClick={() => navigate('/home')}>Ingresar</button>
-    </>
+    <div >
+      <h1>Landing</h1>
+      <button onClick={() => navigate('/home')}>Ingresar</button>
+      <button onClick={() => navigate('/register')}>Register</button>
+    </div>
   );
 };
 
