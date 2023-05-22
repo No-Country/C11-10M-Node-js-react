@@ -4,6 +4,7 @@ const {
 	postUser,
 	deleteUser,
 	findUserByID,
+	login,
 } = require("../controllers/index.js");
 
 const router = Router();
@@ -12,8 +13,12 @@ router.get("/", async (req, res) => {
 	findAllUsers(req, res);
 });
 
-router.get("/:id", async (req, res) => {
+router.get(":id", async (req, res) => {
 	findUserByID(req, res);
+});
+
+router.post("/login", async (req, res) => {
+	login(req, res);
 });
 
 router.post("/", async (req, res) => {
