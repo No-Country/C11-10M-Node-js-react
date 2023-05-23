@@ -108,7 +108,7 @@ const Signup = () => {
 
 					<div className={`w-full pl-2`}>
 						<InputText
-							type="text"
+							type="password"
 							title="Contraseña"
 							name="password"
               value={inputs?.password}
@@ -119,7 +119,7 @@ const Signup = () => {
 
 					<div className={`w-full pl-2`}>
 						<InputText
-							type="text"
+							type="password"
 							title={"Escriba de nuevo la contraseña"}
 							name="password_bis"
               value={inputs?.password_bis}

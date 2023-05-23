@@ -1,5 +1,6 @@
 const initialState = {
-  isLogin: false
+  isLogin: false,
+  allEmployees: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -8,7 +9,12 @@ const reducer = (state = initialState, action) => {
     case "LOGIN": 
       return {
           ...state, 
-          isLogin: true
+          isLogin: true,
+      }
+    case "GET_EMPLOYEES":
+      return {
+        ...state,
+        allEmployees: action.payload
       }
 
     default: return {...state};

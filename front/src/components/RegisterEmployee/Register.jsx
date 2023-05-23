@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { stylesButton, stylesContainer, stylesErrorForm } from "../../styles";
 import { InputSelect, InputText } from "../Inputs/Input";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Validate from "./Validate";
 import swal from "sweetalert";
-import { postEmployee } from "../../redux/actions";
+import { getEmployees, postEmployee } from "../../redux/actions";
 
 const Register = () => {
 	const initialState = {
@@ -28,6 +28,7 @@ const Register = () => {
 
 	const [inputs, setInputs] = useState(initialState);
 	const [errors, setErrors] = useState(initialState);
+	const [flag, setFlag] = useState(false)
 
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -57,6 +58,9 @@ const Register = () => {
 						title: "Empleado registrado",
 						icon: "success",
 					});
+					setInputs(initialState)
+					setErrors(initialState)
+					setFlag(prev=>!prev)
 				} else {
 					swal({
 						title: "Error",
@@ -73,6 +77,10 @@ const Register = () => {
 			});
 		}
 	};
+
+	useEffect(()=>{
+		dispatch(getEmployees())
+	}, [dispatch, flag])
 	return (
 		<div className="bg-main-gray min-h-screen flex flex-col justify-center items-center py-8">
 			<form
@@ -284,7 +292,7 @@ const Register = () => {
 					</div>
 					{/* buttons */}
 					<div className="grid grid-cols-2 mt-10 gap-6">
-						<button className={stylesButton} onClick={() => navigate("/")}>
+						<button className={stylesButton} onClick={() => navigate("/employees")}>
 							Atrás
 						</button>
 						<button className={stylesButton + " bg-main-green text-white"}>

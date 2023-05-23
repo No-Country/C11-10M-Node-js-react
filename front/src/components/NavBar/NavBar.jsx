@@ -24,6 +24,9 @@ const location = useLocation();
     <div>
       <NavLink className='navLink' to='/downloads' >Descargas</NavLink>
     </div>
+    <div>
+      <NavLink className='navLink' to='/employees' >Empleados</NavLink>
+    </div>
             
   </StyledNav>
     )
