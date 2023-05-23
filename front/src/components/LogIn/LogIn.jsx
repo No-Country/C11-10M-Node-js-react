@@ -1,25 +1,43 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const LogIn = () => {
+  
+  const navigate = useNavigate();
 
-const navigate = useNavigate();
+  const [ userData, setUserData ] = useState({
+    user: "",
+    password: "",
+  })
 
-  return (
-    <>
-    <div>
-        <label htmlFor="name">Usuario:  </label>
+  const handleInputChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value
+    })
+    console.log(userData)
+  };
+
+    return (
+      <>
+      <div>
+        <label htmlFor="user">Usuario:  </label>
         <input
           type="text"
-          name="name"
-        />   
-    </div>
-    <div>
+          name="user"
+          value={userData.user}
+          onChange={handleInputChange}
+          />   
+      </div>
+      <div>
         <label htmlFor="password">Contraseña:  </label>
         <input
-          type="text"
+          type="password"
           name="password"
+          value={userData.password}
+          onChange={handleInputChange}
         />   
-    </div>
+      </div>
     <div>
     <button onClick={() => navigate('/home')}>Ingresar</button>
     </div>
