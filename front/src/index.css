@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-/*the list of style below of these commentary are necesaries for the correct view of webside
-these was including because tailwind have a preset color and dimensions, for these reaseon
-is necessary complement whit personalize style. for other hand almost or all other classes including 
-in the framework (Tail Wind) will by used to customize the components in the apps*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -44,7 +43,7 @@ h1 {
   line-height: 1.1;
 }
 .box{
-  width: 1003px;
+  width: 100%;
   background-color: #D7F0E6;
 }
 .w-t{

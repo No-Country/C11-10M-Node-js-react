@@ -34,3 +34,14 @@ export const isLogin = (inputs) => async (dispatch) => {
     return err
   }
 }
+
+export const getEmployees = () => async (dispatch) => {
+  try{
+    const response = await axios.get("/employees")
+
+    return dispatch({ type: "GET_EMPLOYEES", payload: response.data })
+  }
+  catch(err){
+    return err
+  }
+}
