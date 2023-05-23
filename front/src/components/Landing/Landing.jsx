@@ -1,16 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
-  
-  const navigate = useNavigate();
-
   return (
-    <>
+    <StyledLanding>
     <h1>Landing</h1>
-    <button onClick={() => navigate('/home')}>Ingresar</button>
-    </>
+		<Link to={'/logIn'}>Ingresar</Link>
+    </StyledLanding>
   );
 };
 
+const StyledLanding = styled.div`
+width: 100%;
+`;
 
 export default Landing;
