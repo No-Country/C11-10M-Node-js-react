@@ -41,7 +41,6 @@ const Landing = () => {
 
 	const navigate = useNavigate();
 
-	// const Separator=()=>{
 
 	// }
 	return (

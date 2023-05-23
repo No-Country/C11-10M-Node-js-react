@@ -1,3 +1,8 @@
+import axios from 'axios';
+//axios.defaults.baseURL = "http://localhost:3001/" //*uso local
+axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
+
+
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Landing from './components/Landing/Landing';
@@ -6,15 +11,15 @@ import RegisterEmployee from './components/RegisterEmployee/Register';
 import Downloads from './components/Downloads/Downloads';
 import BuildingForm from './components/BuildingForm/BuildingForm';
 import WageForm from './components/WageForm/WageForm';
-import axios from 'axios';
 import Signup from './components/Signup/Signup';
 import LogIn from './components/LogIn/LogIn';
-axios.defaults.baseURL = "http://localhost:3001/"
 import "/src/index.css"
 import Employees from './components/Employees/Employees';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEmployees } from './redux/actions';
+
+
 function App() {
   const {isLogin} = useSelector(s=>s)
   const dispatch = useDispatch()

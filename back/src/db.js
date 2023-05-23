@@ -14,6 +14,10 @@ const db = new Sequelize(
 	}
 );
 
+// const { DB_DEPLOY } = process.env;
+
+// const db = new Sequelize(DB_DEPLOY, { logging: false, native: false });
+
 Employees(db);
 Wage(db);
 User(db);
