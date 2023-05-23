@@ -16,16 +16,13 @@ const location = useLocation();
       <NavLink className='navLink' to='/buildingForm' >Perfil</NavLink>
     </div>
     <div>
-      <NavLink className='navLink' to='/workerForm' >Colaboradores</NavLink>
+      <NavLink className='navLink' to='/employees' >Empleados</NavLink>
     </div>
     <div>
       <NavLink className='navLink' to='/wageForm' >Liquidacion</NavLink>
     </div>
     <div>
       <NavLink className='navLink' to='/downloads' >Descargas</NavLink>
-    </div>
-    <div>
-      <NavLink className='navLink' to='/employees' >Empleados</NavLink>
     </div>
             
   </StyledNav>
@@ -45,8 +42,7 @@ const StyledNav = styled.div`
         text-decoration: none;
     }
     .logo {
-        width: 200px;
-        height: 150px;
+        width: 180px;
     }
 
 `
