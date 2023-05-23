@@ -3,8 +3,18 @@
 	"fname": "Nicolas",
 	"lname": "Von",
 	"email": "nico@gmail.com",
-	"dni": 42475090
+	"dni": 43475091,
+	"cuil": 20434750916,
+	"province": "cordoba",
+	"position": "Oficial esp",
+	"startDate": "2023-05-05",
+	"birthDate": "1998-05-05",
+	"children": "1",
+	"contractType": "Permanente",
+	"numberART": 123456789,
+	"civilStatus": "Soltero/a"
 }
+
 
 //wage post
 {

@@ -1,15 +1,17 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import {stylesButton} from "../../styles"
+import {useNavigate} from "react-router-dom"
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
-    <StyledHome>
-    <h1>Home</h1>
-    </StyledHome>
+    <div className="pl-2 leading-10">
+      <h2>HOME</h2>
+      <button className={stylesButton}
+      onClick={()=>navigate("/")}>Volver a Login</button>
+    </div>
   );
 };
 
-const StyledHome = styled.div`
-width: 100%;
-`;
 
 export default Home;
