@@ -12,7 +12,7 @@ const Register = () => {
 		fname: "",
 		lname: "",
 		dni: "",
-		cuil: "",
+		// cuil: "",
 		province: "",
 		adress: "",
 		phone: "",
