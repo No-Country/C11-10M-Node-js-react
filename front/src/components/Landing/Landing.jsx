@@ -67,7 +67,7 @@ const Landing = () => {
                 {dots}
               </div>
 
-              <button className="mb-8 btn-primary"onClick={()=>navigate("/login") }>¡Empezar!</button>
+              <button className="mb-8 btn-primary"onClick={()=>navigate("/logIn") }>¡Empezar!</button>
 
 
             </div>
