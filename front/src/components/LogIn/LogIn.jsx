@@ -4,6 +4,7 @@ import { useState } from "react";
 import { isLogin } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import swal from "sweetalert";
+import logo from "../../assets/logo.png"
 
 const LogIn = () => {
 	const [inputs, setInputs] = useState({
@@ -71,7 +72,7 @@ const LogIn = () => {
 				<div className="grid place-items-center m-auto w-full ">
 					<div className="box grid place-items-center h-full m-auto mb-5">
 						<div className="grid grid-cols-1 place-items-center m-auto">
-							<img className="logo" src="./src/assets/logo.png"></img>
+							<img className="logo" src={logo}></img>
 						</div>
 
 						<form className="grid w-t font-semibold" onSubmit={handleSubmit}>
