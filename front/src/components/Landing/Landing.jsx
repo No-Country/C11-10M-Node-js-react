@@ -80,7 +80,7 @@ const Landing = () => {
 						</div>
 						<div className="flex justify-center mb-8">{dots}</div>
 
-						<button className="mb-8 btn-primary" onClick={() => navigate("/login")}>
+						<button className="mb-8 btn-primary" onClick={() => navigate("/logIn")}>
 							¡Empezar!
 						</button>
 					</div>
