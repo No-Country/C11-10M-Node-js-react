@@ -17,19 +17,20 @@ const Landing = () => {
 		description:"¡Y facilitar la liquidación de haberes de los empleados de tu empresa!"},
 	  ]
 	
+	  const [currentImage,setCurrentImage]=useState(0)
+	  const [text,setText]=useState(0)
 	  
 	  /* funtion for create dots below of image */
 	  const dots= slides.map((slide, slideIndex)=>
 	  <div key={slideIndex} className='cursor-pointer' onClick={()=>goToSlide(slideIndex)}>
 	
-		  <img src="src/assets/circleEmpy.svg" alt="" />
+		  <img src="src/assets/circleEmpy.svg" alt=""
+		  className={`${currentImage === slideIndex && "bg-black rounded-full"}`}v />
 		
 	  </div>)
 	
 	   
 	
-	  const [currentImage,setCurrentImage]=useState(0)
-	  const [text,setText]=useState(0)
 	  
 	  const nextimage=(e)=>{
 		setCurrentImage(1+currentImage)
