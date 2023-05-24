@@ -27,6 +27,8 @@ function App() {
   useEffect(()=>{
     if(isLogin) dispatch(getEmployees())
   }, [isLogin, dispatch])
+
+  // const { pathname }  = useLocation();
  
   return (
     <>
@@ -34,7 +36,7 @@ function App() {
         <NavBar/>
       <Routes>
         <Route exact path='/' element={<Landing/>}/>
-        <Route path='/logIn' element={<LogIn/>}/>
+        <Route path='/login' element={<LogIn/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/downloads' element={<Downloads/>}/>
         <Route path='/buildingForm' element={<BuildingForm/>}/>
