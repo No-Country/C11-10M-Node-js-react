@@ -7,9 +7,9 @@ const Employees = () => {
 	const stylePadding = "p-2";
 	return (
 		<div className="">
-			<div className="p-2 bg-input-green min-h-[84vh]">
+			<div className="p-2 bg-input-green min-h-[89vh]">
 				<p className="text-xl underline pb-2">Empleados registrados:</p>
-				<table className="bg-white">
+				{allEmployees.length>0 ? <table className="bg-white">
 					<thead className="border-2">
 						<tr>
 							<th className={stylePadding}>N°</th>
@@ -32,7 +32,8 @@ const Employees = () => {
 							</tr>
 						))}
 					</tbody>
-				</table>
+				</table> 
+				: <p>Ningún empleado cargado todavía</p>}
 
 				<hr className="border-1 border-main-green my-4 w-1/2"></hr>
 
