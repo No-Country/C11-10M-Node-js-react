@@ -36,6 +36,7 @@ const Landing = () => {
 		setText(1+text)
 		if(currentImage>=2){
 		  setCurrentImage(0)
+		  setText(0)
 		}
 	  }
 
