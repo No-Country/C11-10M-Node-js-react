@@ -5,6 +5,9 @@ import { useState } from "react";
 // import { useDispatch } from "react-redux";
 // import swal from "sweetalert";
 // import { useLocation, Link } from "react-router-dom";
+import circle from "../../assets/circleEmpy.svg"
+import logo from "../../assets/logo.png"
+
 const Landing = () => {
 	const slides = [
 		{
@@ -41,7 +44,7 @@ const Landing = () => {
 			className={`cursor-pointer`}
 			onClick={() => goToSlide(slideIndex)}
 		>
-			<img src="src/assets/circleEmpy.svg" alt="" className={`${currentImage===slideIndex && "bg-black rounded-full"}`}/>
+			<img src={circle} alt="" className={`${currentImage===slideIndex && "bg-black rounded-full"}`}/>
 		</div>
 	));
 
@@ -53,15 +56,13 @@ const Landing = () => {
 	};
 	const navigate = useNavigate();
 
-	console.log(currentImage)
-
 	return (
 		<>
 			<div className="grid place-items-center m-auto w-6/12 my-12">
 				<div className="box grid place-items-center h-full m-auto mb-5">
 					<div className="grid grid-cols-1 place-items-center m-auto">
 						<div className="grid grid-cols-1 place-items-center m-auto">
-							<img className="w-3/12 mb-12 m-5" src="./src/assets/logo.png"></img>
+							<img className="w-3/12 mb-12 m-5" src={logo}></img>
 						</div>
 						<img
 							className="mb-8 w-8/12"
