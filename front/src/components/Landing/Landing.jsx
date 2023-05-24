@@ -5,8 +5,8 @@ import { useState } from "react";
 // import { useDispatch } from "react-redux";
 // import swal from "sweetalert";
 // import { useLocation, Link } from "react-router-dom";
-import circle from "../../assets/circleEmpy.svg"
-import logo from "../../assets/logo.png"
+import circle from "../../assets/circleEmpy.svg";
+import logo from "../../assets/logo.png";
 
 const Landing = () => {
 	const slides = [
@@ -44,7 +44,11 @@ const Landing = () => {
 			className={`cursor-pointer`}
 			onClick={() => goToSlide(slideIndex)}
 		>
-			<img src={circle} alt="" className={`${currentImage===slideIndex && "bg-black rounded-full"}`}/>
+			<img
+				src={circle}
+				alt=""
+				className={`${currentImage === slideIndex && "bg-black rounded-full"}`}
+			/>
 		</div>
 	));
 
@@ -81,18 +85,8 @@ const Landing = () => {
 						</button>
 					</div>
 				</div>
-              <div className='flex justify-center mb-8'>
-                {dots}
-              </div>
-
-              <button className="mb-8 btn-primary"onClick={()=>navigate("/logIn") }>¡Empezar!</button>
-
-
-            </div>
-            </div>
-            </div>
-					
-    </>
+			</div>
+		</>
 	);
 };
 
