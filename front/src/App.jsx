@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
 
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Landing from './components/Landing/Landing';
 import Home from './components/Home/Home';
@@ -28,24 +28,24 @@ function App() {
     if(isLogin) dispatch(getEmployees())
   }, [isLogin, dispatch])
 
-  // const { pathname }  = useLocation();
+  const { pathname }  = useLocation();
  
   return (
     <>
       <div>
-        <NavBar/>
-      <Routes>
-        <Route exact path='/' element={<Landing/>}/>
-        <Route path='/login' element={<LogIn/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/downloads' element={<Downloads/>}/>
-        <Route path='/buildingForm' element={<BuildingForm/>}/>
-        <Route path='/wageForm' element={<WageForm/>}/>
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/registerEmployee' element={<RegisterEmployee/>}/>
-        <Route path='/employees' element={<Employees/>}/>
-        {/* <Route path='/createForm' element={<CreateForm/>}/> */}
-      </Routes>
+        {pathname!=="/signup" && <NavBar/>}
+        <Routes>
+          <Route exact path='/' element={<Landing/>}/>
+          <Route path='/login' element={<LogIn/>}/>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/downloads' element={<Downloads/>}/>
+          <Route path='/buildingForm' element={<BuildingForm/>}/>
+          <Route path='/wageForm' element={<WageForm/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/registerEmployee' element={<RegisterEmployee/>}/>
+          <Route path='/employees' element={<Employees/>}/>
+          {/* <Route path='/createForm' element={<CreateForm/>}/> */}
+        </Routes>
       </div>
     </>
   )
