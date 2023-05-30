@@ -103,11 +103,11 @@ const LogIn = () => {
 							<hr className="line mb-8 mt-4" />
 						</form>
 
-						<div className="grid grid-cols-2 xl:grid-cols-3 gap-10 mt-5 mb-10 font-semibold w-auto">
+						<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-10 mt-5 mb-10 font-semibold w-auto">
 							<button className=" btn-secondary" onClick={() => navigate("/home")}>
 								Ir a home
 							</button>
-							<button className=" btn-primary" onClick={handleSubmit}>
+							<button className="btn-primary" onClick={handleSubmit}>
 								Ingresar
 							</button>
 							<button className="btn-secondary " onClick={() => navigate("/signup")}>
