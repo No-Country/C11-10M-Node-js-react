@@ -12,6 +12,14 @@ const WageForm = () => {
     nincome: "",
     nhours: "", 
 		ehours: "",
+    inc1: "",
+    inc2: "",
+    inc3: "",
+    txt1: "",
+    txt2: "",
+    txt3: "",
+    payment: "",
+    plus: "false",
 	};
 
 	const [inputs, setInputs] = useState(initialState);
@@ -26,6 +34,7 @@ const WageForm = () => {
 			...inputs,
 			[e.target.name]: e.target.value,
 		});
+    console.log(inputs);
 		// setErrors(
 		// 	Validate({
 		// 		...inputs,
@@ -33,6 +42,13 @@ const WageForm = () => {
 		// 	})
 		// );
 	};
+
+  const onClick = () => {
+    setInputs({
+			...inputs,
+			payment: (inputs.nhours+(inputs.ehours*2))*inputs.nincome
+		});
+  };
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -99,7 +115,7 @@ const WageForm = () => {
                 <InputText
                   type="number"
                   title={"Basico por hora"}
-                  name={"fname"}
+                  name={"nincome"}
                   value={inputs?.nincome}
                   onChange={handleChange}
                   autofocus={true}
@@ -125,7 +141,7 @@ const WageForm = () => {
                 <InputText
                   type="number"
                   title={"Horas extra"}
-                  name={"fname"}
+                  name={"ehours"}
                   value={inputs?.ehours}
                   onChange={handleChange}
                   autofocus={true}
@@ -137,8 +153,8 @@ const WageForm = () => {
           <InputText
             type="text"
             title={"Incidencia 1"}
-            name={"incidencia1"}
-            value={inputs?.ehours}
+            name={"txt1"}
+            value={inputs?.txt1}
             onChange={handleChange}
             autofocus={true}
           />
@@ -146,8 +162,8 @@ const WageForm = () => {
           <InputText
             type="text"
             title={"Valor"}
-            name={"valor1"}
-            value={inputs?.ehours}
+            name={"inc1"}
+            value={inputs?.inc1}
             onChange={handleChange}
             autofocus={true}
             style={{marginLeft: '20px'}}
@@ -158,8 +174,8 @@ const WageForm = () => {
             <InputText
               type="text"
               title={"Incidencia 2"}
-              name={"incidencia1"}
-              value={inputs?.ehours}
+              name={"txt2"}
+              value={inputs?.txt2}
               onChange={handleChange}
               autofocus={true}
             />
@@ -167,8 +183,8 @@ const WageForm = () => {
             <InputText
               type="text"
               title={"Valor"}
-              name={"valor1"}
-              value={inputs?.ehours}
+              name={"inc2"}
+              value={inputs?.inc2}
               onChange={handleChange}
               autofocus={true}
               style={{marginLeft: '20px'}}
@@ -179,8 +195,8 @@ const WageForm = () => {
             <InputText
               type="text"
               title={"Incidencia 3"}
-              name={"incidencia1"}
-              value={inputs?.ehours}
+              name={"txt3"}
+              value={inputs?.txt3}
               onChange={handleChange}
               autofocus={true}
             />
@@ -188,8 +204,8 @@ const WageForm = () => {
             <InputText
               type="text"
               title={"Valor"}
-              name={"valor1"}
-              value={inputs?.ehours}
+              name={"inc3"}
+              value={inputs?.inc3}
               onChange={handleChange}
               autofocus={true}
               style={{marginLeft: '20px'}}
@@ -198,12 +214,12 @@ const WageForm = () => {
           <br />
           <div>
             <label>Presentismo? </label>
-            <input type="checkbox" name="opcion" value="valor1"/>
+            <input type="checkbox" name="plus" value='true' onChange={handleChange}/>
           </div>
           <br />
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-            <button className={stylesButton + " bg-main-green text-white"}>Calcular salario</button>
-            <h1>Valor a pagar: $ </h1>
+            <button type="button" className={stylesButton + " bg-main-green text-white"} onClick={onClick}>Calcular salario</button>
+            <h1>Valor a pagar: $ {inputs.payment}</h1>
           </div>
           <br />
 					{/* buttons */}
