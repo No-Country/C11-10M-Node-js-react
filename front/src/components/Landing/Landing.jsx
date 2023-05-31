@@ -44,20 +44,10 @@ const Landing = () => {
 		}
 	};
 
-	/* funtion for create dots below of image */
-	const dots = slides.map((slide, slideIndex) => (
-		<div
-			key={slideIndex}
-			className={`cursor-pointer`}
-			onClick={() => goToSlide(slideIndex)}
-		>
-			<img
-				src={circle}
-				alt=""
-				className={`${currentImage === slideIndex && "bg-black rounded-full"}`}
-			/>
-		</div>
-	));
+	const goToSlide= (slideIndex)=>{
+        setCurrentImage(slideIndex)
+        setText(slideIndex)
+       }
   
 	const navigate = useNavigate();
 
