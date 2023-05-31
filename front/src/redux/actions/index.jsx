@@ -45,3 +45,14 @@ export const getEmployees = () => async (dispatch) => {
     return err
   }
 }
+
+export const getWages = () => async (dispatch) => {
+  try{
+    const response = await axios.get("/wages")
+
+    return dispatch({ type: "GET_WAGES", payload: response.data })
+  }
+  catch(err){
+    return err
+  }
+}

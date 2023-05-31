@@ -1,8 +1,7 @@
 const regexPhone =
 	/(\(?\d{3}\)?[- .]?\d{4}[- .]?\d\d\d\d)|(\(?\d{4}\)?[- .]?\d{3}[- .]?\d\d\d\d)|(\(?\d{5}\)?[- .]?\d{2}[- .]?\d\d\d\d)/;
-const regexDni = /^[0-9]{6,10}$/;
-const regexMail =
-	/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const regexDni = /^[0-9]{6,15}$/;
+const regexMail = /^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 const Validate = (inputs) => {
 	let errors = {};
@@ -13,7 +12,7 @@ const Validate = (inputs) => {
 	} else if (inputs.fname.length > 50) {
 		errors.fname = "El Nombre es demasiado largo, Max 50 caracteres.";
 	} else if (inputs.fname.length < 2) {
-		errors.fname = "El Nombre es demasiado corto, Min 2 caracteres.";
+		errors.fname = "El campo nombre debe tener al menos dos carácteres";
 	}
 
 	//*apellido
@@ -22,23 +21,29 @@ const Validate = (inputs) => {
 	} else if (inputs.lname.length > 50) {
 		errors.lname = "El Apellido es demasiado largo, Max 50 caracteres.";
 	} else if (inputs.lname.length < 2) {
-		errors.lname = "El Apellido es demasiado corto, Min 2 caracteres.";
+		errors.lname = "El campo apellido debe tener al menos dos carácteres";
 	}
 
 	//*dni
 	else if (!inputs.dni) {
-		errors.dni = "El campo dni debe estar completo";
+		errors.dni = "El campo DNI debe estar completo";
 	} else if (!regexDni.test(inputs.dni)) {
 		errors.dni = "Debe ingresar un Dni valido";
-	} else if (inputs.dni.length > 11) {
-		errors.dni = "El DNI muy largo.";
+	} else if (inputs.dni.length >= 10) {
+		errors.dni =
+			"El campo DNI debe tener menos de 10 caracteres.";
 	} else if (inputs.dni.length < 6) {
-		errors.dni = "El DNI muy corto.";
+		errors.dni = "El campo DNI debe tener al menos seis carácteres.";
 	}
 
 	//*cuil
 	else if (!inputs.cuil) {
 		errors.cuil = "El campo cuil debe estar completo";
+	} else if (inputs.cuil.length > 11 && inputs.cuil.length <= 16) {
+		errors.cuil =
+			"El campo CUIL debe tener al menos 11 caracteres y tener menos de 15.";
+	} else if (inputs.cuil.length < 6) {
+		errors.cuil = "El campo CUIL debe tener al menos seis carácteres.";
 	}
 
 	//*province
@@ -55,14 +60,14 @@ const Validate = (inputs) => {
 	else if (!inputs.phone) {
 		errors.phone = "El campo teléfono debe estar completo";
 	} else if (!regexPhone.test(inputs.phone)) {
-		errors.phone = "El Teléfono debe ser formato internacional válido";
+		errors.phone = "El teléfono debe ser formato internacional válido";
 	}
 
 	//*email
 	else if (!inputs.email) {
 		errors.email = "El campo email debe estar completo";
 	} else if (!regexMail.test(inputs.email)) {
-		errors.email = "El Teléfono debe ser formato internacional válido";
+		errors.email = "El email debe ser formato internacional válido";
 	}
 
 	//*birth date
@@ -97,7 +102,7 @@ const Validate = (inputs) => {
 
 	//*numberART
 	else if (!inputs.numberART) {
-		errors.numberART = "El campo contrato debe estar completo";
+		errors.numberART = "El campo número de ART debe estar completo";
 	}
 
 	return errors;
