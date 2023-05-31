@@ -49,10 +49,10 @@
 
 <h3>UX/UI</h3>
 
-| <img style="width:80px;  border-radius:50%; margin-left:2%" src="https://avatars.githubusercontent.com/u/127046813?v=4"/>  |  <img style="width:80px;  border-radius:50%; margin-left:2%" src="https://i.ibb.co/JB4LFmv/585e4beacb11b227491c3399.png"/> |
+| <img style="width:80px;  border-radius:50%; margin-left:2%" src="https://avatars.githubusercontent.com/u/127046813?v=4"/>  |  <img style="width:80px;  border-radius:50%; margin-left:2%" src="https://avatars.githubusercontent.com/u/133014126?v=4"/> |
 | :------------: | :------------: |
 | Germán Gálvez  | Nicolás Bottino Cané |
-| <p aling="center"><a href="https://github.com/Germangalvezux"><img style="width:60px; display:block; margin-left:20%" src="https://i.ibb.co/Ytq45t0/Git-Hub-Logo.png"/></a></p> | <a href="#"><img style="width:60px; display:block; margin-left:30%" src="https://i.ibb.co/Ytq45t0/Git-Hub-Logo.png"/></a>   |
+| <p aling="center"><a href="https://github.com/Germangalvezux"><img style="width:60px; display:block; margin-left:20%" src="https://i.ibb.co/Ytq45t0/Git-Hub-Logo.png"/></a></p> | <a href="https://github.com/Nicolasbc12"><img style="width:60px; display:block; margin-left:30%" src="https://i.ibb.co/Ytq45t0/Git-Hub-Logo.png"/></a>   |
 
 
 <h3>QA</h3>
