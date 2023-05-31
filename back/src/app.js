@@ -38,8 +38,17 @@ server.use((err, req, res, next) => {
 	res.status(status).send(message);
 });
 
-server.get("/", (req,res)=>{
-	res.send("<h1>hola</h1>")
+server.get("/", async (req,res)=>{
+	let nicome=20;
+	let nhours=8;
+	let ehours=5;
+	let wageplane=nicome*nhours;
+	let wageExtra=1.5*nicome*ehours;
+	let subtotal=wageplane+wageExtra
+	let deduction=subtotal*0.2;
+	let payment=subtotal-deduction
+	console.log("tu pago por concepto de horas trabajadas es de:"+subtotal+"  tus deducciones son por un monto de:"+deduction+"  tu pago por concepto de mes es de:"+payment)
+	res.send("<h1>Hola</h1>")
 })
 
 

@@ -2,7 +2,6 @@
 <p align="center"><img  style="widht:200px;height:200px; margin-left:30%" src="https://i.ibb.co/d55RST6/Container-logo-1.webp"/></p>
 
 
-------------
 <h2>Descripción del proyecto</h2>
 <p align="center"><a href="https://c11-10-m-node-js-react.vercel.app"><img src="https://i.ibb.co/PWPzJ7q/liqui.jpg" alt="liqui" border="0"></a></p>
 
@@ -67,11 +66,4 @@
 |  <img  style="width:80px;  border-radius:50%" src="https://ca.slack-edge.com/T02KS88FB0E-U056TLJT7K2-d220bbef5ee1-512">  |
 | :------------: |
 |Regina Baños |
-
-
-
-
-
-
-
 
