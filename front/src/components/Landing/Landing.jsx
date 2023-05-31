@@ -53,7 +53,7 @@ const Landing = () => {
 
 	return (
 		<>
-			<div className="grid place-items-center m-auto w-6/12 my-12">
+			<div className="grid place-items-center m-auto md:w-6/12 my-12">
 				<div className="box grid place-items-center h-full m-auto mb-5">
 					<div className="grid grid-cols-1 place-items-center m-auto">
 						<div className="grid grid-cols-1 place-items-center m-auto">
