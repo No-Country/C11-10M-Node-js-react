@@ -107,7 +107,7 @@ const LogIn = () => {
 							<button className=" btn-secondary" onClick={() => navigate("/home")}>
 								Ir a home
 							</button>
-							<button className=" btn-primary" onClick={handleSubmit}>
+							<button className="btn-primary" onClick={handleSubmit}>
 								Ingresar
 							</button>
 							<button className="btn-secondary " onClick={() => navigate("/signup")}>
