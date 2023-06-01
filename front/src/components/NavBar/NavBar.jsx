@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 
 const NavBar = () => {
 const location = useLocation();
+const isLogin = localStorage.getItem("user")
 
   return (
   <StyledNav style={{display: location.pathname === '/' || location.pathname === '/logIn'  ? 'none': 'flex'}}>
@@ -23,6 +24,9 @@ const location = useLocation();
     </div>
     <div>
       <NavLink className='navLink' to='/downloads' >Descargas</NavLink>
+    </div>
+    <div>
+      {isLogin === 'superAdmin' && <NavLink className='navLink' to='/signup' >Registrar</NavLink>}
     </div>
             
   </StyledNav>

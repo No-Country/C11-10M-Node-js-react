@@ -2,10 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Home = () => {
+
+const userName = localStorage.getItem("user");
+
   return (
     <StyledHome>
       <div className='home'>
         <div className='menu'>
+          <h2 style={{fontSize: '2.5vw'}}>¡Hola, {userName}! Te damos la bienvenida a</h2>
           <img className='logo' src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684566285/logo_2_qqpvpa.png" alt="Loading..." />
           <div className='contenedoriconos' >
             <div className='iconoHome'>
@@ -54,7 +58,7 @@ const StyledHome = styled.div`
 .menu {
   background-color: white;
   width: 55%;
-  height: 75%;
+  height: fit-content;
   border: 10px solid rgb(20,145,94);
   border-radius: 20px 50px;
   display: flex;
@@ -79,6 +83,7 @@ const StyledHome = styled.div`
 
 .iconoHome {
   width: 45%;
+  padding: 15px;
   color: black;
   display: flex;
   flex-direction: column;
