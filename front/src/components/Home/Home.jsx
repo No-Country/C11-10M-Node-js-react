@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -9,28 +9,28 @@ const Home = () => {
           <img className='logo' src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684566285/logo_2_qqpvpa.png" alt="Loading..." />
           <div className='contenedoriconos' >
             <div className='iconoHome'>
-              <Link style={{color:'black'}} to={'/buildingForm'}>
+              <NavLink style={{color:'black'}} to={'/buildingForm'}>
                 <img style={{width:'23%'}} className='logoImg' src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684830150/icono_perfil_du8fbd.png" alt="Loading..." />
-                <h5>Mi perfil</h5>       
-              </Link>
+                <h5 className='logoTxt'>Mi perfil</h5>       
+              </NavLink>
             </div>  
             <div className='iconoHome'>
-              <Link style={{color:'black'}} to={'/employees'}>
+              <NavLink style={{color:'black'}} to={'/employees'}>
                 <img className='logoImg' src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_empleados_kirz6w.png" alt="Loading..." />
-                <h5>Mis empleados</h5>              
-              </Link>
+                <h5 className='logoTxt'>Mis empleados</h5>              
+              </NavLink>
             </div>  
             <div className='iconoHome'>
-              <Link style={{color:'black'}} to={'/wageForm'}>
+              <NavLink style={{color:'black'}} to={'/wageForm'}>
                 <img className='logoImg' src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_liquidacion_npc6km.png" alt="Loading..." />
-                <h5>Calcular Liquidacion</h5>     
-              </Link>
+                <h5 className='logoTxt'>Calcular Liquidacion</h5>     
+              </NavLink>
             </div>  
             <div className='iconoHome'>
-              <Link style={{color:'black'}} to={'/downloads'}>
+              <NavLink style={{color:'black'}} to={'/downloads'}>
                 <img className='logoImg' src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_descargas_yaqqlq.png" alt="Loading..." />
-                <h5>Descargar</h5>     
-              </Link>
+                <h5 className='logoTxt'>Descargar</h5>     
+              </NavLink>
             </div>  
           </div>
         </div>
@@ -47,7 +47,7 @@ const StyledHome = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* align-content: center; */
+  align-content: center;
   justify-content: center;
 }
 
@@ -56,7 +56,7 @@ const StyledHome = styled.div`
   width: 55%;
   height: 75%;
   border: 10px solid rgb(20,145,94);
-  border-radius: 20px;
+  border-radius: 20px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,6 +89,14 @@ const StyledHome = styled.div`
 
 .logoImg {
   width: 30%;
+  display: block;
+  margin: 0 auto;
+}
+.logoTxt {
+  width: 30%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 `;

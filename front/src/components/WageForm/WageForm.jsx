@@ -12,9 +12,9 @@ const WageForm = () => {
     nincome: "",
     nhours: "", 
 		ehours: "",
-    inc1: "",
-    inc2: "",
-    inc3: "",
+    inc1: 0,
+    inc2: 0,
+    inc3: 0,
     txt1: "",
     txt2: "",
     txt3: "",
@@ -25,7 +25,7 @@ const WageForm = () => {
 	const [inputs, setInputs] = useState(initialState);
 	const [errors, setErrors] = useState(initialState);
 	const [flag, setFlag] = useState(false)
-
+  
 	const dispatch = useDispatch();
   const { allEmployees } = useSelector((s) => s);
 
@@ -46,10 +46,10 @@ const WageForm = () => {
   const onClick = () => {
     setInputs({
 			...inputs,
-			payment: (inputs.nhours+(inputs.ehours*2))*inputs.nincome
+			payment: inputs.plus === 'false' ? ((parseInt(inputs.nhours)+parseInt(inputs.ehours*2))*parseInt(inputs.nincome))+(parseInt(inputs.inc1)+parseInt(inputs.inc2)+parseInt(inputs.inc3)) : ((parseInt(inputs.nhours)+parseInt(inputs.ehours*2))*parseInt(inputs.nincome))+(parseInt(inputs.inc1)+parseInt(inputs.inc2)+parseInt(inputs.inc3))+((parseInt(inputs.nhours)+parseInt(inputs.ehours*2))*parseInt(inputs.nincome))*0.2
 		});
   };
-
+  
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -91,6 +91,7 @@ const WageForm = () => {
 				className="grid grid-cols-1 gap-8 w-3/4 xl:w-1/2 md:grid-cols-2 bg-white px-10 py-6
         rounded-sm"
 				onSubmit={handleSubmit}
+        id="wageForm"
 			>
 						{/* employee */}
 						<div>
@@ -160,7 +161,7 @@ const WageForm = () => {
           />
 
           <InputText
-            type="text"
+            type="number"
             title={"Valor"}
             name={"inc1"}
             value={inputs?.inc1}
@@ -169,7 +170,6 @@ const WageForm = () => {
             style={{marginLeft: '20px'}}
           />
           </div>
-          
           <div style={{display: 'flex', flexDirection: 'row'}}>
             <InputText
               type="text"
@@ -214,7 +214,7 @@ const WageForm = () => {
           <br />
           <div>
             <label>Presentismo? </label>
-            <input type="checkbox" name="plus" value='true' onChange={handleChange}/>
+            <input type="checkbox" name="plus" value={inputs.plus === 'false'? 'true': 'false'} onChange={handleChange}/>
           </div>
           <br />
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
@@ -224,7 +224,7 @@ const WageForm = () => {
           <br />
 					{/* buttons */}
 					<div style={{display: 'flex', justifyContent: 'center'}}>
-						<button className={stylesButton + " bg-main-green text-white"}>
+						<button type="submit" form="wageForm" className={stylesButton + " bg-main-green text-white"}>
 							Cargar
 						</button>
 					</div>
