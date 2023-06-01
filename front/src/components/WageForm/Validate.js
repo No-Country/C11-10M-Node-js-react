@@ -29,7 +29,7 @@ const Validate = (inputs) => {
 		errors.ehours = "Este campo debe estar completo";
 	} else if (isNaN(inputs.ehours)) {
 		errors.ehours = "Debe ser un numero";
-	} else if (inputs.ehours > 48) {
+	} else if (inputs.ehours > 24) {
 		errors.ehours = "El valor no puede exceder las 24 horas legales";
 	}
 
