@@ -5,7 +5,7 @@ import { useState } from "react";
 // import { useDispatch } from "react-redux";
 // import swal from "sweetalert";
 // import { useLocation, Link } from "react-router-dom";
-import circle from "../../assets/circleEmpy.svg";
+// import circle from "../../assets/circleEmpy.svg";
 import logo from "../../assets/logo.png";
 
 const Landing = () => {
@@ -29,41 +29,40 @@ const Landing = () => {
 	const [currentImage, setCurrentImage] = useState(0);
 	const [text, setText] = useState(0);
 
-	const nextimage = () => {
-		setCurrentImage(1 + currentImage);
-		setText(1 + text);
-		if (currentImage >= 2) {
-			setCurrentImage(0);
-			setText(0)
-		}
-	};
-
+	const goToSlide= (slideIndex)=>{
+		setCurrentImage(slideIndex)
+		setText(slideIndex)
+	}
+  
 	/* funtion for create dots below of image */
 	const dots = slides.map((slide, slideIndex) => (
 		<div
 			key={slideIndex}
-			className={`cursor-pointer`}
+			className="cursor-pointer"
 			onClick={() => goToSlide(slideIndex)}
 		>
 			<img
-				src={circle}
+				src="src/assets/circleEmpy.svg"
 				alt=""
 				className={`${currentImage === slideIndex && "bg-black rounded-full"}`}
 			/>
 		</div>
 	));
 
-	/* funtion for create dots below of image */
-
-	const goToSlide = (slideIndex) => {
-		setCurrentImage(slideIndex);
-		setText(slideIndex);
+	const nextimage = () => {
+		setCurrentImage(1 + currentImage);
+		setText(1 + text);
+		if (currentImage >= 2) {
+			setCurrentImage(0);
+			setText(0);
+		}
 	};
+
 	const navigate = useNavigate();
 
 	return (
 		<>
-			<div className="grid place-items-center m-auto w-6/12 my-12">
+			<div className="grid place-items-center m-auto md:w-6/12 my-12">
 				<div className="box grid place-items-center h-full m-auto mb-5">
 					<div className="grid grid-cols-1 place-items-center m-auto">
 						<div className="grid grid-cols-1 place-items-center m-auto">

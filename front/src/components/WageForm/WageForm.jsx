@@ -42,7 +42,6 @@ const WageForm = () => {
 		// 	})
 		// );
 	};
-
   const onClick = () => {
     setInputs({
 			...inputs,
@@ -117,6 +116,7 @@ const WageForm = () => {
                   type="number"
                   title={"Basico por hora"}
                   name={"nincome"}
+                  name={"nincome"}
                   value={inputs?.nincome}
                   onChange={handleChange}
                   autofocus={true}
@@ -143,6 +143,7 @@ const WageForm = () => {
                   type="number"
                   title={"Horas extra"}
                   name={"ehours"}
+                  name={"ehours"}
                   value={inputs?.ehours}
                   onChange={handleChange}
                   autofocus={true}
@@ -156,6 +157,8 @@ const WageForm = () => {
             title={"Incidencia 1"}
             name={"txt1"}
             value={inputs?.txt1}
+            name={"txt1"}
+            value={inputs?.txt1}
             onChange={handleChange}
             autofocus={true}
           />
@@ -163,6 +166,8 @@ const WageForm = () => {
           <InputText
             type="number"
             title={"Valor"}
+            name={"inc1"}
+            value={inputs?.inc1}
             name={"inc1"}
             value={inputs?.inc1}
             onChange={handleChange}
@@ -176,6 +181,8 @@ const WageForm = () => {
               title={"Incidencia 2"}
               name={"txt2"}
               value={inputs?.txt2}
+              name={"txt2"}
+              value={inputs?.txt2}
               onChange={handleChange}
               autofocus={true}
             />
@@ -183,6 +190,8 @@ const WageForm = () => {
             <InputText
               type="text"
               title={"Valor"}
+              name={"inc2"}
+              value={inputs?.inc2}
               name={"inc2"}
               value={inputs?.inc2}
               onChange={handleChange}
@@ -197,6 +206,8 @@ const WageForm = () => {
               title={"Incidencia 3"}
               name={"txt3"}
               value={inputs?.txt3}
+              name={"txt3"}
+              value={inputs?.txt3}
               onChange={handleChange}
               autofocus={true}
             />
@@ -204,6 +215,8 @@ const WageForm = () => {
             <InputText
               type="text"
               title={"Valor"}
+              name={"inc3"}
+              value={inputs?.inc3}
               name={"inc3"}
               value={inputs?.inc3}
               onChange={handleChange}
