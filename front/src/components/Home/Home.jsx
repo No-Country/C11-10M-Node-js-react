@@ -23,7 +23,7 @@ const Home = () => {
             <div className='iconoHome'>
               <NavLink style={{color:'black'}} to={'/wageForm'}>
                 <img className='logoImg' src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_liquidacion_npc6km.png" alt="Loading..." />
-                <h5 className='logoTxt'>Calcular Liquidacion</h5>     
+                <h5 className='logoTxt'>Calcular Liquidación</h5>     
               </NavLink>
             </div>  
             <div className='iconoHome'>

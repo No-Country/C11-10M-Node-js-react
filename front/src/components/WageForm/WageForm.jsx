@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import Validate from "./Validate";
 import swal from "sweetalert";
 import { getEmployees, postEmployee } from "../../redux/actions";
+import Validate from "./Validate";
 
 const WageForm = () => {
 	const initialState = {
@@ -35,12 +36,12 @@ const WageForm = () => {
 			[e.target.name]: e.target.value,
 		});
     console.log(inputs);
-		// setErrors(
-		// 	Validate({
-		// 		...inputs,
-		// 		[e.target.name]: e.target.value,
-		// 	})
-		// );
+		setErrors(
+			Validate({
+				...inputs,
+				[e.target.name]: e.target.value,
+			})
+		);
 	};
   const onClick = () => {
     setInputs({
@@ -86,11 +87,9 @@ const WageForm = () => {
 	}, [dispatch, flag])
 	return (
 		<div className="bg-main-gray min-h-screen flex flex-col justify-center items-center py-8">
-			<form
+			<div
 				className="grid grid-cols-1 gap-8 w-3/4 xl:w-1/2 md:grid-cols-2 bg-white px-10 py-6
-        rounded-sm"
-				onSubmit={handleSubmit}
-        id="wageForm"
+        rounded-sm"				
 			>
 						{/* employee */}
 						<div>
@@ -101,13 +100,11 @@ const WageForm = () => {
 								onChange={handleChange}
 								options={allEmployees.map((e)=> e.fname + " " + e.lname )}
 							/>
-							{errors?.civilStatus && (
-								<p className={stylesErrorForm}>{errors?.civilStatus}</p>
+							{errors?.employee && (
+								<p className={stylesErrorForm}>{errors?.employee}</p>
 							)}
-						</div>
+						</div>			
 				
-				
-				{/* selects container */}
 				<div className={stylesContainer + " md:col-start-1 md:col-end-3"}>
 					<div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {/* income for hour */}
@@ -120,7 +117,7 @@ const WageForm = () => {
                   onChange={handleChange}
                   autofocus={true}
                 />
-                {errors?.fname && <p className={stylesErrorForm}>{errors?.fname}</p>}
+                {errors?.nincome && <p className={stylesErrorForm}>{errors?.nincome}</p>}
               </div>
             
             {/* number of normal hours worked */}
@@ -133,7 +130,7 @@ const WageForm = () => {
                   onChange={handleChange}
                   autofocus={true}
                 />
-                {errors?.fname && <p className={stylesErrorForm}>{errors?.fname}</p>}
+                {errors?.nhours && <p className={stylesErrorForm}>{errors?.nhours}</p>}
               </div>
             
             {/* number of extra hours worked */}
@@ -146,7 +143,7 @@ const WageForm = () => {
                   onChange={handleChange}
                   autofocus={true}
                 />
-                {errors?.fname && <p className={stylesErrorForm}>{errors?.fname}</p>}
+                {errors?.ehours && <p className={stylesErrorForm}>{errors?.ehours}</p>}
               </div>
 					</div>
           <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -223,12 +220,12 @@ const WageForm = () => {
           <br />
 					{/* buttons */}
 					<div style={{display: 'flex', justifyContent: 'center'}}>
-						<button type="submit" form="wageForm" className={stylesButton + " bg-main-green text-white"}>
+						<button type="submit" form="wageForm" onClick={handleSubmit} className={stylesButton + " bg-main-green text-white"}>
 							Cargar
 						</button>
 					</div>
 				</div>
-			</form>
+			</div>
 		</div>
 	);
 };

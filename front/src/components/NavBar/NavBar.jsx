@@ -19,7 +19,7 @@ const location = useLocation();
       <NavLink className='navLink' to='/employees' >Empleados</NavLink>
     </div>
     <div>
-      <NavLink className='navLink' to='/wage' >Liquidacion</NavLink>
+      <NavLink className='navLink' to='/wage' >Liquidación</NavLink>
     </div>
     <div>
       <NavLink className='navLink' to='/downloads' >Descargas</NavLink>
