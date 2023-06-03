@@ -1,6 +1,6 @@
 import axios from 'axios';
-axios.defaults.baseURL = "http://localhost:3001/" //*uso local
-// axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
+//axios.defaults.baseURL = "http://localhost:3001/" //*uso local
+axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
 
 
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
