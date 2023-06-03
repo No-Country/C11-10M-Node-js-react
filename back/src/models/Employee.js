@@ -21,6 +21,7 @@ const employees = (sequelize) => {
 			dni: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
+				unique: true,
 			},
 			cuil: {
 				type: DataTypes.BIGINT,
