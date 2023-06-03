@@ -6,6 +6,11 @@ const regexMail = /^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const Validate = (inputs) => {
 	let errors = {};
 
+	const fechaNacimiento = new Date(inputs.birthDate);
+	const fechaActual = new Date();
+	const tiempoDiferencia = fechaActual - fechaNacimiento;
+	const age = Math.floor(tiempoDiferencia / (1000 * 60 * 60 * 24 * 365.25));
+
 	//*nombre
 	if (!inputs.fname) {
 		errors.fname = "El campo nombre debe estar completo";
@@ -30,8 +35,7 @@ const Validate = (inputs) => {
 	} else if (!regexDni.test(inputs.dni)) {
 		errors.dni = "Debe ingresar un Dni valido";
 	} else if (inputs.dni.length >= 10) {
-		errors.dni =
-			"El campo DNI debe tener menos de 10 caracteres.";
+		errors.dni = "El campo DNI debe tener menos de 10 caracteres.";
 	} else if (inputs.dni.length < 6) {
 		errors.dni = "El campo DNI debe tener al menos seis carácteres.";
 	}
@@ -73,6 +77,9 @@ const Validate = (inputs) => {
 	//*birth date
 	else if (!inputs.birthDate) {
 		errors.birthDate = "El campo fecha de nacimiento debe estar completo";
+	} else if (age < 16) {
+		errors.birthDate =
+			"El empleado debe ser mayor a 16 años. Edad actual: " + age;
 	}
 
 	//*start date
