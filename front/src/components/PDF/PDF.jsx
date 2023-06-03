@@ -113,10 +113,10 @@ const DocuPDF = ({ data }) => {
 										BASE: ${payment}
 									</Text>
 									<Text style={{ fontSize: "12px", paddingTop: "8px" }}>
-										Horas trabajadas: ${nhours}
+										Horas trabajadas: {nhours}
 									</Text>
 									<Text style={{ fontSize: "12px", paddingTop: "8px" }}>
-										Horas extras: ${ehours}
+										Horas extras: {ehours}
 									</Text>
 									<Text style={{ fontSize: "12px", paddingTop: "8px" }}>
 										Deducciones: ${deductions}
