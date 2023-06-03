@@ -22,7 +22,15 @@ Employees(db);
 Wage(db);
 User(db);
 
-// const { employees } = db.models;
+const { employees, wage } = db.models;
+
+wage.belongsTo(employees, {
+	through: "WageEmployee",
+	foreignKey: "employeeId",
+});
+employees.belongsToMany(wage, {
+	through: "WageEmployee",
+});
 
 module.exports = {
 	...db.models,

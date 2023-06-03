@@ -1,6 +1,6 @@
 import axios from 'axios';
-//axios.defaults.baseURL = "http://localhost:3001/" //*uso local
-axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
+axios.defaults.baseURL = "http://localhost:3001/" //*uso local
+// axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
 
 
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
@@ -65,6 +65,7 @@ function App() {
           <Route path='/registerEmployee' element={<RegisterEmployee/>}/>
           <Route path='/employees' element={<Employees/>}/>
           <Route path='/wage' element={<Wage/>}/>
+          <Route path='/wage/:id' element={<Downloads/>}/>
           {/* <Route path='/createForm' element={<CreateForm/>}/> */}
         </Routes>
       </div>
