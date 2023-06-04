@@ -69,6 +69,7 @@ const StyledHome = styled.div`
 }
 
 .logo {
+  min-width: 200px;
   width: 40%;
 }
 
@@ -93,6 +94,7 @@ const StyledHome = styled.div`
 }
 
 .logoImg {
+  min-width: 70px;
   width: 30%;
   display: block;
   margin: 0 auto;
