@@ -4,36 +4,41 @@ import { stylesButton } from "../../styles";
 
 const Employees = () => {
 	const { allEmployees } = useSelector((s) => s);
-	const stylePadding = "p-2";
+	const stylePadding = "p-2 text-md md:text-xl ";
 	return (
-		<div className="">
-			<div className="p-2 bg-input-green min-h-[89vh]">
-				<p className="text-xl underline pb-2">Empleados registrados:</p>
-				{allEmployees.length>0 ? <table className="bg-white">
-					<thead className="border-2">
-						<tr>
-							<th className={stylePadding}>N°</th>
-							<th className={stylePadding}>Nombre</th>
-              <th className={stylePadding}>DNI</th>
-							<th className={stylePadding}>Puesto</th>
-							<th className={stylePadding}>Contrato</th>
-						</tr>
-					</thead>
-					<tbody className="border-2 capitalize">
-						{allEmployees?.map((employee, index) => (
-							<tr key={employee?.id} className="border-y-[">
-								<td className={stylePadding}>{index + 1}.</td>
-								<td className={stylePadding}>
-									{employee?.fname + " " + employee?.lname}
-								</td>
-                <td className={stylePadding}>{employee?.dni}</td>
-								<td className={stylePadding}>{employee?.position}</td>
-								<td className={stylePadding}>{employee?.contractType}</td>
-							</tr>
-						))}
-					</tbody>
-				</table> 
-				: <p>Ningún empleado cargado todavía</p>}
+		<div className=" overflow-hidden">
+			<div className="p-2 bg-input-green min-h-[89vh] overflow-hidden">
+				<p className="underline pb-2">Empleados registrados:</p>
+				<div className="overflow-x-auto overflow-hidden scroll scroll-smooth ">
+				{allEmployees.length > 0 ? (
+						<table className="bg-white">
+							<thead className="border-2 ">
+								<tr>
+									<th className={stylePadding}>N°</th>
+									<th className={stylePadding}>Nombre</th>
+									<th className={stylePadding}>DNI</th>
+									<th className={stylePadding}>Puesto</th>
+									<th className={stylePadding}>Contrato</th>
+								</tr>
+							</thead>
+							<tbody className="border-2 capitalize">
+								{allEmployees?.map((employee, index) => (
+									<tr key={employee?.id} className="border-y-[">
+										<td className={stylePadding}>{index + 1}.</td>
+										<td className={stylePadding}>
+											{employee?.fname + " " + employee?.lname}
+										</td>
+										<td className={stylePadding}>{employee?.dni}</td>
+										<td className={stylePadding}>{employee?.position}</td>
+										<td className={stylePadding}>{employee?.contractType}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+				) : (
+					<p>Ningún empleado cargado todavía</p>
+				)}
+				</div>
 
 				<hr className="border-1 border-main-green my-4 w-1/2"></hr>
 
