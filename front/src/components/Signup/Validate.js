@@ -1,5 +1,3 @@
-const regexPassword = /^(?=.*[a-zA-Z])(?=.*\d).+$/;
-
 const Validate = (inputs) => {
 	let errors = {};
 
@@ -15,8 +13,6 @@ const Validate = (inputs) => {
 		errors.password = "La contraseña es demasiado corta, Min 4 caracteres.";
 	} else if (inputs.password.length > 32) {
 		errors.password = "La contraseña es demasiada larga, Max 32 caracteres.";
-	} else if (!regexPassword.test(inputs.password)) {
-		errors.password = "La contraseña debe tener al menos un caracter y un número";
 	} else if (!inputs.password_bis) {
 		errors.password_bis = "El campo repetir contraseña debe estar completo";
 	} else if (inputs.password !== inputs.password_bis) {

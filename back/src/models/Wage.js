@@ -9,6 +9,11 @@ const wage = (sequelize) => {
 			allowNull: true,
 			primaryKey: true,
 		},
+		employeeId: {
+			type: DataTypes.UUID,
+			defaultValue: DataTypes.UUIDV4,
+			allowNull: true
+		},
 
 		/*income for hour*/
 		nincome: {

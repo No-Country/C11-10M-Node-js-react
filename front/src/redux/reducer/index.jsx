@@ -1,24 +1,29 @@
 const initialState = {
-  isLogin: false,
-  allEmployees: []
+	allWages: [],
+	allEmployees: [],
 };
 
 const reducer = (state = initialState, action) => {
-  switch (action.type) {
-      
-    case "LOGIN": 
-      return {
-          ...state, 
-          isLogin: true,
-      }
-    case "GET_EMPLOYEES":
-      return {
-        ...state,
-        allEmployees: action.payload
-      }
+	switch (action.type) {
+		case "LOGIN":
+			return {
+				...state,
+			};
+		case "GET_EMPLOYEES":
+			return {
+				...state,
+				allEmployees: action.payload,
+			};
 
-    default: return {...state};
-  }
+		case "GET_WAGES":
+			return {
+				...state,
+				allWages: action.payload,
+			};
+
+		default:
+			return { ...state };
+	}
 };
 
 export default reducer;
