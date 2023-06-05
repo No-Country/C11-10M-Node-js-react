@@ -35,9 +35,8 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
-}
+
+
 
 body {
   margin: 0;
@@ -92,8 +91,13 @@ button {
   background-color: #ffffff;
 }
 
+nav{
+  background-color:#14915E;;
+}
 
-
+.bg-green{
+  background-color: #14915E;
+}
 button:hover {
   border-color: #646cff;
 }
@@ -101,7 +105,9 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+.icon{ 
+  fill:white;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
