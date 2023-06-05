@@ -9,6 +9,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 			};
+			
 		case "GET_EMPLOYEES":
 			return {
 				...state,
