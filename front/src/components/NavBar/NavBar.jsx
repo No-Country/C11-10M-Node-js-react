@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -26,11 +25,12 @@ const NavBar = ({setFlag}) => {
 	}
 
 	const isLogin = localStorage.getItem("user");
-
+	
 	return (
 		<>
 			<nav>
 				<div
+					
 					onClick={() => setOpen(!open)}
 					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
 				>
@@ -38,6 +38,7 @@ const NavBar = ({setFlag}) => {
 						<img className="h-8 mr-3" src={logo} alt="" />
 					</Link>
 
+					<div onClick={() => setOpen(!open)}>
 					<div>
 						<span>
 							{open ? (
@@ -59,13 +60,23 @@ const NavBar = ({setFlag}) => {
 									xmlns="http://www.w3.org/2000/svg"
 								>
 									<path
-										fill-rule="evenodd"
+                    className="w-6 h-6 absolute right-8 top-6 cursor-pointer md:hidden icon"
+										fill="currentcolor"
+										fillRule="evenodd"
 										d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
 									></path>
 								</svg>
 							)}
 						</span>
 					</div>
+          <div onClick={()=>{}}>
+
+            <NavLink to="/home"><svg className="w-6 h-6 absolute right-14 top-6 cursor-pointer md:hidden icon" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z"/></svg></NavLink>
+              
+							
+
+          </div>
+
 
 					<div className="w-full md:block md:w-auto" id="navbar-default">
 						<ul
@@ -100,6 +111,7 @@ const NavBar = ({setFlag}) => {
 						</ul>
 					</div>
 				</div>
+				</div>
 			</nav>
 			<div>
 				{isLogin === "superAdmin" && (
@@ -112,21 +124,21 @@ const NavBar = ({setFlag}) => {
 	);
 };
 
-const StyledNav = styled.div`
-	align-items: center;
-	width: 100%;
-	justify-content: space-around;
-	color: #ffffff;
-	background-color: rgb(20, 145, 94);
-	.navLink {
-		font-size: 30px;
-		color: #ffffff;
-		font-weight: bold;
-		text-decoration: none;
-	}
-	.logo {
-		width: 180px;
-	}
-`;
+// const StyledNav = styled.div`
+// 	align-items: center;
+// 	width: 100%;
+// 	justify-content: space-around;
+// 	color: #ffffff;
+// 	background-color: rgb(20, 145, 94);
+// 	.navLink {
+// 		font-size: 30px;
+// 		color: #ffffff;
+// 		font-weight: bold;
+// 		text-decoration: none;
+// 	}
+// 	.logo {
+// 		width: 180px;
+// 	}
+// `;
 
 export default NavBar;

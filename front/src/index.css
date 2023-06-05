@@ -108,6 +108,13 @@ button:focus-visible {
 .icon{ 
   fill:white;
 }
+
+.pborder{
+  border:solid 0.7em #14915E;
+  border-radius: 2em 5em;
+
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
