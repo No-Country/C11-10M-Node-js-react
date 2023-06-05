@@ -1,8 +1,11 @@
 import axios from "axios"
 
 export const postEmployee = (inputs) => async () => {
+  const user = localStorage.getItem('user')
   try{
-    const response = await axios.post("/employees", inputs)
+    const response = await axios.post("/employees", {
+      ...inputs, userName: user
+    })
 
     return response
   }

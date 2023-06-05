@@ -16,9 +16,8 @@ const createEmployee = async (req, res) => {
 			children,
 			contractType,
 			numberART,
+			userName,
 		} = req.body;
-
-		const { userName } = req.query;
 
 		if (userName) {
 			const find = await user.findOne({ where: { userName } });
@@ -40,13 +39,12 @@ const createEmployee = async (req, res) => {
 					numberART,
 					idUser: find.dataValues.id,
 				});
+				res.status(200).json({ success: true });
 			} else throw new Error("Not user found with that username");
-			res.status(200).json({ success: true });
 		} else {
 			throw new Error(`Not username passed`);
 		}
 	} catch (err) {
-		console.log(err.message);
 		res.status(400).json({ message: err.message });
 	}
 };
