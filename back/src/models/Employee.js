@@ -78,6 +78,10 @@ const employees = (sequelize) => {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
+			idUser: {
+				type: DataTypes.UUID,
+				allowNull: false,
+			},
 		},
 		{ timestamps: false }
 	);

@@ -37,7 +37,8 @@ export const isLogin = (inputs) => async (dispatch) => {
 
 export const getEmployees = () => async (dispatch) => {
   try{
-    const response = await axios.get("/employees")
+    const user = localStorage.getItem('user')
+    const response = await axios.get("/employees?userName=" + user)
 
     return dispatch({ type: "GET_EMPLOYEES", payload: response.data })
   }

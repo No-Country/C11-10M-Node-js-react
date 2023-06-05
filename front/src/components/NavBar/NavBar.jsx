@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import { useState } from "react";
 import Swal from "sweetalert2"
 
+
 const NavBar = ({setFlag}) => {
 	let [open, setOpen] = useState(false);
 
@@ -31,7 +32,6 @@ const NavBar = ({setFlag}) => {
 			<nav>
 				<div
 					
-					onClick={() => setOpen(!open)}
 					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
 				>
 					<Link to="/">
@@ -39,7 +39,6 @@ const NavBar = ({setFlag}) => {
 					</Link>
 
 					<div onClick={() => setOpen(!open)}>
-					<div>
 						<span>
 							{open ? (
 								<svg
@@ -62,7 +61,6 @@ const NavBar = ({setFlag}) => {
 									<path
                     className="w-6 h-6 absolute right-8 top-6 cursor-pointer md:hidden icon"
 										fill="currentcolor"
-										fillRule="evenodd"
 										d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
 									></path>
 								</svg>
@@ -76,7 +74,6 @@ const NavBar = ({setFlag}) => {
 							
 
           </div>
-
 
 					<div className="w-full md:block md:w-auto" id="navbar-default">
 						<ul
@@ -110,7 +107,6 @@ const NavBar = ({setFlag}) => {
 							}
 						</ul>
 					</div>
-				</div>
 				</div>
 			</nav>
 			<div>
