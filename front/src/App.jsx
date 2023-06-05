@@ -53,8 +53,8 @@ function App() {
   return (
     <>
       <div>
-        {pathname!=="/signup" && pathname!=="/login" && <NavBar/>}
-       <Routes>
+        {pathname!=="/signup" && pathname!=="/login" && pathname!=="logIn" && <NavBar/>}
+        <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/home' element={<Home/>}/>
