@@ -39,13 +39,15 @@ const createEmployee = async (req, res) => {
 					numberART,
 					idUser: find.dataValues.id,
 				});
-				res.status(200).json({ success: true });
-			} else throw new Error("Not user found with that username");
+				return res.status(200).json({ success: true }); // Use return to exit the function here
+			} else {
+				throw new Error("No user found with that username");
+			}
 		} else {
-			throw new Error(`Not username passed`);
+			throw new Error("No username passed");
 		}
 	} catch (err) {
-		res.status(400).json({ message: err.message });
+		return res.status(400).json({ message: err.message }); // Use return to exit the function here
 	}
 };
 
