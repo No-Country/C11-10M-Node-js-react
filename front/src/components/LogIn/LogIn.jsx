@@ -105,17 +105,17 @@ const LogIn = () => {
 							<hr className="line mb-8 mt-4" />
 						</form>
 
-						<div className="grid md:grid-cols-2 xl:grid-cols-3 sm:gap-3 md:gap-10 mt-5 sm:mb-2 md:mb-10 font-semibold w-auto">
-							<button className=" btn-secondary" onClick={() => navigate("/home")}>
+						<div className="grid sm:gap-3 md:gap-10 mt-5 sm:mb-2 md:mb-10 font-semibold w-auto">
+							{/* <button className=" btn-secondary" onClick={() => navigate("/home")}>
 								Ir a home
-							</button>
+							</button> */}
 							<button className="btn-primary" onClick={handleSubmit}>
 								Ingresar
 							</button>
-							<button className="btn-secondary " onClick={() => navigate("/signup")}>
-								Registrarme
+							{/* <button className="btn-secondary " onClick={() => navigate("/signup")}>
+								Registrarme */}
 								{/* Recuperar Contraseña */}
-							</button>
+							{/* </button> */}
 						</div>
 					</div>
 				</div>
