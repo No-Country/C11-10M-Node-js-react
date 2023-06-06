@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2"
 
 const NavBar = ({setFlag}) => {
 	let [open, setOpen] = useState(false);
+	const navigate = useNavigate()
 
 	const signOut = () =>{
 		Swal.fire({
@@ -21,6 +22,7 @@ const NavBar = ({setFlag}) => {
 				localStorage.setItem("isLogin", "")
 				localStorage.setItem("password", "")
 				setFlag(prev=>!prev)
+				navigate("/")
 			}
 		});
 	}

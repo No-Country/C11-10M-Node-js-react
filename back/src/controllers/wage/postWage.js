@@ -4,9 +4,18 @@ const createWage = async (req, res) => {
 	try {
 		const { nhours, ehours, plus, payment, employeeId } = req.body;
 
-		let base = payment * nhours + payment * ehours * 1.5;
-		const deductions = (base * 17) / 100;
-		let nincome = base - deductions + plus;
+		let wageplane = payment * nhours;
+		let wageExtra = payment * ehours * 1.5;
+
+		let subtotal = wageplane + wageExtra;
+
+		let plusTotal = subtotal * 0.05
+		plusTotal = Number(plusTotal.toFixed(2));
+
+		let deductions = (subtotal + plusTotal) * 0.17;
+		deductions = Number(deductions.toFixed(2))
+		
+		let nincome = subtotal - deductions;
 
 		// Create or update the associated employee record
 		const employee = await employees.findByPk(employeeId);

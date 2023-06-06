@@ -10,7 +10,6 @@ import Validate from "./Validate";
 const WageForm = () => {
 	const initialState = {
     employeeId: "",
-    nincome: "",
     nhours: "", 
 		ehours: "",
     // inc1: 0,
