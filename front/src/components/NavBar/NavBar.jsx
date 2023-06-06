@@ -1,4 +1,4 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -11,7 +11,7 @@ const NavBar = () => {
 	let [open, setOpen] = useState(false);
 	return (
 		<>
-			<nav>
+			<nav style={{display: location.pathname==='/login' || location.pathname==='/' ? 'none': ''}} >
 				<div
 					
 					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
@@ -83,36 +83,43 @@ const NavBar = () => {
 									Liquidación
 								</NavLink>
 							</li>
+							<li className="md:ml-8 text-xl md:my-0 my-7">
+							{isLogin === "superAdmin" && (
+								<NavLink className="text-white hover:text-gray-200" to="/signup">
+									Registrar
+								</NavLink>
+							)}
+							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
-			<div>
+			{/* <div>
 				{isLogin === "superAdmin" && (
 					<NavLink className="" to="/signup">
 						Registrar
 					</NavLink>
 				)}
-			</div>
+			</div> */}
 		</>
 	);
 };
 
-const StyledNav = styled.div`
-	align-items: center;
-	width: 100%;
-	justify-content: space-around;
-	color: #ffffff;
-	background-color: rgb(20, 145, 94);
-	.navLink {
-		font-size: 30px;
-		color: #ffffff;
-		font-weight: bold;
-		text-decoration: none;
-	}
-	.logo {
-		width: 180px;
-	}
-`;
+// const StyledNav = styled.div`
+// 	align-items: center;
+// 	width: 100%;
+// 	justify-content: space-around;
+// 	color: #ffffff;
+// 	background-color: rgb(20, 145, 94);
+// 	.navLink {
+// 		font-size: 30px;
+// 		color: #ffffff;
+// 		font-weight: bold;
+// 		text-decoration: none;
+// 	}
+// 	.logo {
+// 		width: 180px;
+// 	}
+// `;
 
 export default NavBar;
