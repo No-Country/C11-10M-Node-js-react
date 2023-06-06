@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2"
 
 const NavBar = ({setFlag}) => {
 	let [open, setOpen] = useState(false);
+	const navigate = useNavigate()
 
 	const signOut = () =>{
 		Swal.fire({
@@ -21,6 +22,7 @@ const NavBar = ({setFlag}) => {
 				localStorage.setItem("isLogin", "")
 				localStorage.setItem("password", "")
 				setFlag(prev=>!prev)
+				navigate("/")
 			}
 		});
 	}
@@ -29,7 +31,7 @@ const NavBar = ({setFlag}) => {
 	
 	return (
 		<>
-			<nav>
+			<nav style={{display: location.pathname==='/login' || location.pathname==='/' ? 'none': ''}} >
 				<div
 					
 					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
@@ -105,17 +107,24 @@ const NavBar = ({setFlag}) => {
 									<span className="text-white hover:text-gray-200 font-semibold cursor-pointer" onClick={()=>signOut()}>Cerrar sesión</span>
 								</div>
 							}
+							<li className="md:ml-8 text-xl md:my-0 my-7">
+							{isLogin === "superAdmin" && (
+								<NavLink className="text-white hover:text-gray-200" to="/signup">
+									Registrar
+								</NavLink>
+							)}
+							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
-			<div>
+			{/* <div>
 				{isLogin === "superAdmin" && (
 					<NavLink className="" to="/signup">
 						Registrar
 					</NavLink>
 				)}
-			</div>
+			</div> */}
 		</>
 	);
 };

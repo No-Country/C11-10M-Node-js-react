@@ -1,6 +1,6 @@
 import axios from 'axios';
-axios.defaults.baseURL = "http://localhost:3001/" //*uso local
-// axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
+// axios.defaults.baseURL = "http://localhost:3001/" //*uso local
+axios.defaults.baseURL = "https://liqui-back-final.onrender.com" //*uso deploy
 
 
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
@@ -35,7 +35,7 @@ function App() {
     if(isLogin) {
       dispatch(getEmployees())
       dispatch(getWages())
-      if(pathname==="/logIn"){
+      if(pathname==="/login"){
         Swal.fire({
           title: "¿Desea iniciar en el home?",
           text: "Usted ya estuvo logeado",
@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <div>
-        {pathname!=="/signup" && pathname!=="/login" && pathname!=="logIn" && <NavBar setFlag={setFlag}/>}
+        {(pathname==="/" || pathname==="/signup" || pathname==="/login" || pathname==="/logIn") ? <></> : <NavBar setFlag={setFlag}/>}
         <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route path='/login' element={<LogIn/>}/>
