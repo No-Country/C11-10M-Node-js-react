@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/logo.png";
 
@@ -22,28 +22,29 @@ const Home = () => {
 
     
   ];
-  const btms=imageButton.map(e=>
-    <div className='grid grid-cols-1'>
+  const btms=imageButton.map((e,i)=>
+    <div className='grid grid-cols-1' key={i}>
       <Link className="text-black" to={e.to}>
       <img className='w-20 h-20 m-auto' src={e.url} alt="mi cuenta" />
-      <h5 className='mt-0.5'>{e.name}</h5> 
+      <h5 className='mt-0.5'>{e.name}</h5>
+
       </Link>
       
     </div>
     )
   
   return (
-    <>
-    <div className='grid items-center md:w-6/12 m-auto text-center md:my-12 my-8 py-20 bg-white pborder'>
+    <div className='flex justify-center md:my-36 xl:my-20'>
+    <div className='grid items-center md:text-lg xl:text-2xl h-60% w-10/12 md:w-8/12 xl:w-6/12 m-auto text-center md:my-12 my-8 py-20 bg-white pborder'>
       
-
-      <div className="grid grid-cols-1 place-items-center m-auto">
-				<img className="w-3/12 mb-12 m-5" src={logo}></img>
-			</div>
-
       <div>
         <h2>¡Hola, {userName}! Te damos la bienvenida a</h2>
       </div>
+
+      <div className="grid grid-cols-1 place-items-center m-auto">
+				<img className="w-4/12 mb-8 m-10" src={logo}></img>
+			</div>
+
 
       {/*image button*/}
       <div className='grid md:grid-cols-2 gap-[0.5em] items-center'>
@@ -53,7 +54,7 @@ const Home = () => {
       </div>
     </div>
 
-    </>
+    </div>
   );
 };
 

@@ -31,7 +31,7 @@ const NavBar = ({setFlag}) => {
 	
 	return (
 		<>
-			<nav>
+			<nav style={{display: location.pathname==='/login' || location.pathname==='/' ? 'none': ''}} >
 				<div
 					
 					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
@@ -107,17 +107,24 @@ const NavBar = ({setFlag}) => {
 									<span className="text-white hover:text-gray-200 font-semibold cursor-pointer" onClick={()=>signOut()}>Cerrar sesión</span>
 								</div>
 							}
+							<li className="md:ml-8 text-xl md:my-0 my-7">
+							{isLogin === "superAdmin" && (
+								<NavLink className="text-white hover:text-gray-200" to="/signup">
+									Registrar
+								</NavLink>
+							)}
+							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
-			<div>
+			{/* <div>
 				{isLogin === "superAdmin" && (
 					<NavLink className="" to="/signup">
 						Registrar
 					</NavLink>
 				)}
-			</div>
+			</div> */}
 		</>
 	);
 };

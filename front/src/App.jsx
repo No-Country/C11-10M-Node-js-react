@@ -35,7 +35,7 @@ function App() {
     if(isLogin) {
       dispatch(getEmployees())
       dispatch(getWages())
-      if(pathname==="/logIn"){
+      if(pathname==="/login"){
         Swal.fire({
           title: "¿Desea iniciar en el home?",
           text: "Usted ya estuvo logeado",
