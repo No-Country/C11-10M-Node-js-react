@@ -32,13 +32,21 @@ employees.belongsToMany(wage, {
 	through: "WageEmployee",
 });
 
-// employees.hasOne(user, {
-// 	through: "UserEmployee",
-// });
-// user.belongsToMany(employees, {
-// 	through: "UserEmployee",
-// 	foreignKey: "idUser",
-// });
+employees.hasOne(user, {
+	through: "UserEmployee",
+});
+user.belongsToMany(employees, {
+	through: "UserEmployee",
+	foreignKey: "idUser",
+});
+
+wage.hasOne(user, {
+	through: "UserEmployee",
+});
+user.belongsToMany(wage, {
+	through: "UserEmployee",
+	foreignKey: "idUser",
+});
 
 module.exports = {
 	...db.models,

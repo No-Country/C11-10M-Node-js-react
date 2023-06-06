@@ -4,23 +4,23 @@ import { InputSelect, InputText } from "../Inputs/Input";
 import { useDispatch, useSelector } from "react-redux";
 // import Validate from "./Validate";
 import swal from "sweetalert";
-import { getEmployees, postEmployee } from "../../redux/actions";
+import { getEmployees, postWage } from "../../redux/actions";
 import Validate from "./Validate";
 
 const WageForm = () => {
 	const initialState = {
-    employee: "",
+    employeeId: "",
     nincome: "",
     nhours: "", 
 		ehours: "",
-    inc1: 0,
-    inc2: 0,
-    inc3: 0,
-    txt1: "",
-    txt2: "",
-    txt3: "",
+    // inc1: 0,
+    // inc2: 0,
+    // inc3: 0,
+    // txt1: "",
+    // txt2: "",
+    // txt3: "",
     payment: "",
-    plus: "false",
+    plus: "false"
 	};
 
 	const [inputs, setInputs] = useState(initialState);
@@ -35,7 +35,6 @@ const WageForm = () => {
 			...inputs,
 			[e.target.name]: e.target.value,
 		});
-    console.log(inputs);
 		setErrors(
 			Validate({
 				...inputs,
@@ -56,7 +55,7 @@ const WageForm = () => {
 		const find = Object.values(errors).find((el) => el !== "");
 
 		if (!find) {
-			dispatch(postEmployee(inputs)).then((data) => {
+			dispatch(postWage(inputs)).then((data) => {
 				if (data.status && data.status === 200) {
 					swal({
 						title: "Pago registrado",
@@ -85,6 +84,9 @@ const WageForm = () => {
 	useEffect(()=>{
 		dispatch(getEmployees())
 	}, [dispatch, flag])
+
+  console.log(inputs)
+
 	return (
 		<div className="bg-main-gray min-h-screen flex flex-col justify-center items-center py-8">
 			<div
@@ -95,13 +97,15 @@ const WageForm = () => {
 						<div>
 							<InputSelect
 								title="Empleado"
-								name="employee"
-								value={inputs?.employee}
+								name="employeeId"
+								value={inputs?.employeeId}
 								onChange={handleChange}
-								options={allEmployees.map((e)=> e.fname + " " + e.lname )}
+								options={allEmployees.map((e)=> {
+                  return {name: e.fname + " " + e.lname + ",", id: e.id}
+                } )}
 							/>
-							{errors?.employee && (
-								<p className={stylesErrorForm}>{errors?.employee}</p>
+							{errors?.employeeId && (
+								<p className={stylesErrorForm}>{errors?.employeeId}</p>
 							)}
 						</div>			
 				

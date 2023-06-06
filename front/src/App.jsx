@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <div>
-        {pathname!=="/signup" && pathname!=="/login" && pathname!=="logIn" && <NavBar setFlag={setFlag}/>}
+        {(pathname==="/signup" || pathname==="/login" || pathname==="/logIn") ? <></> : <NavBar setFlag={setFlag}/>}
         <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route path='/login' element={<LogIn/>}/>

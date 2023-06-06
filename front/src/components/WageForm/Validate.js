@@ -2,8 +2,8 @@ const Validate = (inputs) => {
 	let errors = {};
 
 	//*empleado
-	if (!inputs.employee) {
-		errors.employee = "Debe seleccionar un empleado";
+	if (!inputs.employeeId) {
+		errors.employeeId = "Debe seleccionar un empleado";
 	}
 
 	//*salario basico por hora
@@ -33,8 +33,7 @@ const Validate = (inputs) => {
 		errors.ehours = "El valor no puede exceder las 24 horas legales";
 	}
 
-  return errors;
-
-}
+	return errors;
+};
 
 export default Validate;

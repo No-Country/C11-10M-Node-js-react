@@ -35,7 +35,8 @@ export const InputSelect = ({ title, name, value, onChange, options }) => {
 			>
 				<option value=""></option>
 				{options?.map((val, index)=>{
-          return <option key={index} value={val}>{val}</option>
+          if(title==='Empleado') return <option key={index} value={val?.id}>{val?.name}</option>
+					else return <option key={index} value={val}>{val}</option>
         })}
 			</select>
 		</div>

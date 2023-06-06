@@ -14,6 +14,20 @@ export const postEmployee = (inputs) => async () => {
   }
 }
 
+export const postWage = (inputs) => async () => {
+  const user = localStorage.getItem('user')
+  try{
+    const response = await axios.post("/wages", {
+      ...inputs, userName: user
+    })
+
+    return response
+  }
+  catch(err){
+    return err
+  }
+}
+
 export const postUser = (inputs) => async () => {
   try{
     const response = await axios.post("/users", inputs)
@@ -30,6 +44,7 @@ export const isLogin = (inputs) => async (dispatch) => {
     await axios.post("/users/login", inputs)
 
     localStorage.setItem("isLogin", true)
+    localStorage.setItem("user", inputs?.userName)
 
     return dispatch({ type: "LOGIN" })
   }
@@ -52,7 +67,8 @@ export const getEmployees = () => async (dispatch) => {
 
 export const getWages = () => async (dispatch) => {
   try{
-    const response = await axios.get("/wages")
+    const user = localStorage.getItem('user')
+    const response = await axios.get("/wages?userName=" + user)
 
     return dispatch({ type: "GET_WAGES", payload: response.data })
   }

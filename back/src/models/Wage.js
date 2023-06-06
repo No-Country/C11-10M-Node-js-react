@@ -12,7 +12,7 @@ const wage = (sequelize) => {
 		employeeId: {
 			type: DataTypes.UUID,
 			defaultValue: DataTypes.UUIDV4,
-			allowNull: true
+			allowNull: true,
 		},
 
 		/*income for hour*/
@@ -44,6 +44,10 @@ const wage = (sequelize) => {
 		/* total to pay to worker */
 		payment: {
 			type: DataTypes.FLOAT,
+			allowNull: false,
+		},
+		idUser: {
+			type: DataTypes.UUID,
 			allowNull: false,
 		},
 	});
