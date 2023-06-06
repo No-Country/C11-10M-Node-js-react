@@ -20,12 +20,16 @@ import { useDispatch } from 'react-redux';
 import { getEmployees, getWages } from './redux/actions';
 import Swal from "sweetalert2"
 import Wage from './components/Wage/Wage';
+import { useState } from 'react';
 
 function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [flag, setFlag] = useState(false)
 
   const isLogin = localStorage.getItem("isLogin")
+
+  const { pathname }  = useLocation();
   
   useEffect(()=>{
     if(isLogin) {
@@ -46,14 +50,12 @@ function App() {
         });
       }
     }
-    else navigate("/login")
-  }, [isLogin, dispatch])
+  }, [isLogin, navigate, flag, pathname, dispatch])
 
-  const { pathname }  = useLocation();
   return (
     <>
       <div>
-        {pathname!=="/signup" && pathname!=="/login" && pathname!=="logIn" && <NavBar/>}
+        {(pathname==="/" || pathname==="/signup" || pathname==="/login" || pathname==="/logIn") ? <></> : <NavBar setFlag={setFlag}/>}
         <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route path='/login' element={<LogIn/>}/>

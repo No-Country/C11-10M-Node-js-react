@@ -131,7 +131,7 @@ const Signup = () => {
 					<div className="w-full flex justify-between pt-6">
 						<button
 							className={stylesButton + " ml-2 w-[150px]"}
-							onClick={() => navigate("/")}
+							onClick={() => navigate("/logIn")}
 						>
 							Atrás
 						</button>
