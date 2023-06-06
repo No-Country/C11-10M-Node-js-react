@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { stylesButton, stylesContainer, stylesErrorForm } from "../../styles";
+import { stylesButton, stylesErrorForm } from "../../styles";
 import { InputSelect, InputText } from "../Inputs/Input";
 import { useDispatch, useSelector } from "react-redux";
 // import Validate from "./Validate";
@@ -89,11 +89,11 @@ const WageForm = () => {
 	return (
 		<div className="bg-main-gray min-h-screen flex flex-col justify-center items-center py-8">
 			<div
-				className="grid grid-cols-1 gap-8 w-3/4 xl:w-1/2 md:grid-cols-2 bg-white px-10 py-6
+				className="grid grid-cols-1 gap-8 w-3/4 xl:w-1/2 md:grid-cols-2 bg-white py-6
         rounded-sm"				
 			>
 						{/* employee */}
-						<div>
+						<div className="w-1/1 bg-white px-10 py-6 rounded-sm">
 							<InputSelect
 								title="Empleado"
 								name="employeeId"
@@ -108,8 +108,9 @@ const WageForm = () => {
 							)}
 						</div>			
 				
-				<div className={stylesContainer + " md:col-start-1 md:col-end-3"}>
-					<div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+				<div className={"md:col-start-1 md:col-end-3"}>
+					<div className="grid grid-cols-1 gap-10 w-30 md:w-30 xl:w-1/1 md:grid-cols-2 xl:grid-cols-3 bg-white xl:gap-18 justify-between px-10 py-6
+        rounded-sm">
             {/* income for hour */}
               <div>
                 <InputText
@@ -118,7 +119,7 @@ const WageForm = () => {
                   name={"nincome"}
                   value={inputs?.nincome}
                   onChange={handleChange}
-                  autofocus={true}
+                  autofocus={true}                  
                 />
                 {errors?.nincome && <p className={stylesErrorForm}>{errors?.nincome}</p>}
               </div>
@@ -149,7 +150,8 @@ const WageForm = () => {
                 {errors?.ehours && <p className={stylesErrorForm}>{errors?.ehours}</p>}
               </div>
 					</div>
-          <div style={{display: 'flex', flexDirection: 'row'}}>
+          <div className="grid grid-cols-1 gap-10 md:gap-20 xl:gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
+        rounded-sm">
           <InputText
             type="text"
             title={"Incidencia 1"}
@@ -169,7 +171,8 @@ const WageForm = () => {
             style={{marginLeft: '20px'}}
           />
           </div>
-          <div style={{display: 'flex', flexDirection: 'row'}}>
+          <div className="grid grid-cols-1 gap-10 md:gap-20 xl:gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
+        rounded-sm">
             <InputText
               type="text"
               title={"Incidencia 2"}
@@ -190,7 +193,8 @@ const WageForm = () => {
             />
           </div>
 
-          <div style={{display: 'flex', flexDirection: 'row'}}>
+          <div className="grid grid-cols-1 gap-10 md:gap-20 xl:gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
+        rounded-sm">
             <InputText
               type="text"
               title={"Incidencia 3"}
@@ -211,13 +215,14 @@ const WageForm = () => {
             />
           </div>
           <br />
-          <div>
+          <div className="px-10">
             <label>Presentismo? </label>
             <input type="checkbox" name="plus" value={inputs.plus === 'false'? 'true': 'false'} onChange={handleChange}/>
           </div>
           <br />
-          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-            <button className={stylesButton + " bg-main-green text-white"} onClick={onClick}>Calcular salario</button>
+          <div className="grid grid-cols-1 gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
+        rounded-sm">
+            <button className={stylesButton + " bg-main-green text-white w-40"} onClick={onClick}>Calcular salario</button>
             <h1>Valor a pagar: $ {inputs.payment}</h1>
           </div>
           <br />
