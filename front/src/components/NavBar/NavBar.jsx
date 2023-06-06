@@ -1,14 +1,32 @@
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
-const NavBar = () => {
-	const location = useLocation();
-	const isLogin = localStorage.getItem("user");
+import Swal from "sweetalert2"
 
-	
+
+const NavBar = ({setFlag}) => {
 	let [open, setOpen] = useState(false);
+
+	const signOut = () =>{
+		Swal.fire({
+			title: "¿Desea cerrar sesión?",
+			icon: "question",
+			showCancelButton: true,
+			confirmButtonText: "Sí",
+			cancelButtonText: "No",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				localStorage.setItem("user", "")
+				localStorage.setItem("isLogin", "")
+				localStorage.setItem("password", "")
+				setFlag(prev=>!prev)
+			}
+		});
+	}
+
+	const isLogin = localStorage.getItem("user");
+	
 	return (
 		<>
 			<nav>
@@ -16,7 +34,7 @@ const NavBar = () => {
 					
 					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
 				>
-					<Link to="/home">
+					<Link to="/">
 						<img className="h-8 mr-3" src={logo} alt="" />
 					</Link>
 
@@ -69,11 +87,6 @@ const NavBar = () => {
 								</NavLink>
 							</li>
 							<li className="md:ml-8 text-xl md:my-0 my-7">
-								<NavLink className="text-white hover:text-gray-200" to="/buildingForm">
-									Perfil
-								</NavLink>
-							</li>
-							<li className="md:ml-8 text-xl md:my-0 my-7">
 								<NavLink className="text-white hover:text-gray-200" to="/employees">
 									Empleados
 								</NavLink>
@@ -83,6 +96,15 @@ const NavBar = () => {
 									Liquidación
 								</NavLink>
 							</li>
+							{!isLogin && isLogin==="" ? <li className="md:ml-8 text-xl md:my-0 my-7">
+								<NavLink className="text-white hover:text-gray-200" to="/logIn">
+									Ingresar
+								</NavLink>
+							</li> : 
+								<div className="text-white hover:text-gray-200 text-xl md:my-0 my-7 ml-5">
+									<span className="text-white hover:text-gray-200 font-semibold cursor-pointer" onClick={()=>signOut()}>Cerrar sesión</span>
+								</div>
+							}
 						</ul>
 					</div>
 				</div>
@@ -98,21 +120,21 @@ const NavBar = () => {
 	);
 };
 
-const StyledNav = styled.div`
-	align-items: center;
-	width: 100%;
-	justify-content: space-around;
-	color: #ffffff;
-	background-color: rgb(20, 145, 94);
-	.navLink {
-		font-size: 30px;
-		color: #ffffff;
-		font-weight: bold;
-		text-decoration: none;
-	}
-	.logo {
-		width: 180px;
-	}
-`;
+// const StyledNav = styled.div`
+// 	align-items: center;
+// 	width: 100%;
+// 	justify-content: space-around;
+// 	color: #ffffff;
+// 	background-color: rgb(20, 145, 94);
+// 	.navLink {
+// 		font-size: 30px;
+// 		color: #ffffff;
+// 		font-weight: bold;
+// 		text-decoration: none;
+// 	}
+// 	.logo {
+// 		width: 180px;
+// 	}
+// `;
 
 export default NavBar;

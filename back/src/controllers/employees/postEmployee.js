@@ -1,4 +1,4 @@
-const { employees } = require("../../db");
+const { employees, user } = require("../../db");
 
 const createEmployee = async (req, res) => {
 	try {
@@ -16,29 +16,38 @@ const createEmployee = async (req, res) => {
 			children,
 			contractType,
 			numberART,
+			userName,
 		} = req.body;
 
-		await employees.create({
-			fname,
-			lname,
-			email,
-			dni,
-			cuil,
-			province,
-			position,
-			startDate,
-			dni,
-			birthDate,
-			civilStatus,
-			children,
-			contractType,
-			numberART,
-		});
-		const find = await employees.findOne({ where: { email } });
-		res.status(200).json({ success: true });
+		if (userName) {
+			const find = await user.findOne({ where: { userName } });
+			if (find) {
+				await employees.create({
+					fname,
+					lname,
+					email,
+					dni,
+					cuil,
+					province,
+					position,
+					startDate,
+					dni,
+					birthDate,
+					civilStatus,
+					children,
+					contractType,
+					numberART,
+					idUser: find.dataValues.id,
+				});
+				return res.status(200).json({ success: true }); // Use return to exit the function here
+			} else {
+				throw new Error("No user found with that username");
+			}
+		} else {
+			throw new Error("No username passed");
+		}
 	} catch (err) {
-		console.log(err.message);
-		res.status(400).json({ message: err.message });
+		return res.status(400).json({ message: err.message }); // Use return to exit the function here
 	}
 };
 
