@@ -16,6 +16,7 @@ const createWage = async (req, res) => {
 		deductions = Number(deductions.toFixed(2))
 		
 		let nincome = subtotal - deductions;
+		nincome=Number(nincome.toFixed(2))
 
 		// Create or update the associated employee record
 		const employee = await employees.findByPk(employeeId);
