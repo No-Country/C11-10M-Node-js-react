@@ -7,10 +7,10 @@ const Wage = () => {
 	const stylePadding = "p-2 p-2 text-sm md:text-md xl:text-lg";
 	return (
 		<div>
-			<div className="mobile:overflow-hidden">
-				<div className="mobile:overflow-x-auto scroll scroll-smooth ">
+			<div className="mobile:overflow-hidden bg-input-green min-h-[93vh]">
+				<div className="mobile:overflow-x-auto scroll scroll-smooth px-4 py-8">
 					{allWages.length > 0 ? (
-						<table className="bg-white">
+						<table className="shadow-sm shadow-main-green">
 							<thead className="border-2">
 								<tr>
 									<th className={stylePadding}>Empleado</th>
@@ -28,11 +28,11 @@ const Wage = () => {
 									return (
 										<tr key={wage?.id} className="border-y-[">
 											<td className={stylePadding}>{name}</td>
-											<td className={stylePadding}>${wage?.payment}</td>
+											<td className={stylePadding}>${wage?.nincome}</td>
 											<td className={stylePadding}>{wage?.nhours}</td>
 											<td className={stylePadding}>{wage?.ehours}</td>
 											<td className={stylePadding}>${wage?.deductions}</td>
-											<td className={stylePadding}>${wage?.nincome}</td>
+											<td className={stylePadding}>${wage?.payment}</td>
 											<td className={stylePadding}>
 												<NavLink to={`/wage/${wage?.id}`} className="text-black underline">
 													Link
