@@ -36,7 +36,7 @@ const NavBar = ({setFlag}) => {
 					
 					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
 				>
-					<Link to="/">
+					<Link to="/home">
 						<img className="h-8 mr-3" src={logo} alt="" />
 					</Link>
 
@@ -98,15 +98,22 @@ const NavBar = ({setFlag}) => {
 									Liquidación
 								</NavLink>
 							</li>
-							{!isLogin && isLogin==="" ? <li className="md:ml-8 text-xl md:my-0 my-7">
+							{!isLogin && isLogin==="" 
+							
+								? 
+								<li className="md:ml-8 text-xl md:my-0 my-7">
 								<NavLink className="text-white hover:text-gray-200" to="/logIn">
 									Ingresar
 								</NavLink>
-							</li> : 
-								<div className="text-white hover:text-gray-200 text-xl md:my-0 my-7 ml-5">
-									<span className="text-white hover:text-gray-200 font-semibold cursor-pointer" onClick={()=>signOut()}>Cerrar sesión</span>
-								</div>
+
+							</li> 
+								: 
+								<li className="md:ml-8 text-xl md:my-0 my-7" >
+									<p className="text-white hover:text-gray-200 font-semibold" onClick={()=>signOut()}>Cerrar sesión</p>
+								</li>
+
 							}
+
 							<li className="md:ml-8 text-xl md:my-0 my-7">
 							{isLogin === "superAdmin" && (
 								<NavLink className="text-white hover:text-gray-200" to="/signup">
