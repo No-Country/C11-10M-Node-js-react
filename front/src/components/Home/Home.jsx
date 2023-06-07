@@ -14,7 +14,7 @@ const Home = () => {
     name:"Mis empleados",
     to:"/employees"},
     {url:"https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_liquidacion_npc6km.png",
-    name:"Calcular Liquidacion",
+    name:"Calcular Liquidación",
     to:"/wageForm"},
     {url:"https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_descargas_yaqqlq.png",
     name:"Descargar",
