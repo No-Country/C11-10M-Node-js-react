@@ -56,47 +56,42 @@ const WageForm = () => {
       );
     }
 	};
-  const onClick = () => {
-    setInputs({
-			...inputs
-		});
-  };
+  // const onClick = () => {
+  //   setInputs({
+	// 		...inputs
+	// 	});
+  // };
   
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		const find = Object.values(errors).find((el) => el !== "");
 
-		// if(inputs?.payment!==0){
-      if (!find) {
-        dispatch(postWage(inputs)).then((data) => {
-          if (data.status && data.status === 200) {
-            swal({
-              title: "Pago registrado",
-              icon: "success",
-            });
-            setInputs(initialState)
-            setErrors(initialState)
-            setFlag(prev=>!prev)
-          } else {
-            swal({
-              title: "Error",
-              text: data.response.data.message,
-              icon: "error",
-            });
-          }
-        });
-      } else {
-        swal({
-          title: "Pago no registrado",
-          text: find,
-          icon: "error",
-        });
-      }
-    // }
-    // else{
-    //   alert("Payment está vacío")
-    // }
+    if (!find) {
+      dispatch(postWage(inputs)).then((data) => {
+        if (data.status && data.status === 200) {
+          swal({
+            title: "Pago registrado",
+            icon: "success",
+          });
+          setInputs(initialState)
+          setErrors(initialState)
+          setFlag(prev=>!prev)
+        } else {
+          swal({
+            title: "Error",
+            text: data.response.data.message,
+            icon: "error",
+          });
+        }
+      });
+    } else {
+      swal({
+        title: "Pago no registrado",
+        text: find,
+        icon: "error",
+      });
+    }
 	};
 
 	useEffect(()=>{
@@ -169,7 +164,7 @@ const WageForm = () => {
                 {errors?.ehours && <p className={stylesErrorForm}>{errors?.ehours}</p>}
               </div>
 					</div>
-          <div className="grid grid-cols-1 gap-10 md:gap-20 xl:gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
+          {/* <div className="grid grid-cols-1 gap-10 md:gap-20 xl:gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
         rounded-sm">
           <InputText
             type="text"
@@ -232,18 +227,18 @@ const WageForm = () => {
               autofocus={true}
               style={{marginLeft: '20px'}}
             />
-          </div>
+          </div> */}
           <br />
           <div className="px-10">
             <label>Presentismo? </label>
             <input type="checkbox" name="plus" value={inputs.plus === 'false'? 'true': 'false'} onChange={handleChange}/>
           </div>
           <br />
-          <div className="grid grid-cols-1 gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
-        rounded-sm">
-            <button className={stylesButton + " bg-main-green text-white w-40"} onClick={onClick}>Calcular salario</button>
-            <h1>Valor a pagar: $ {inputs.payment}</h1>
-          </div>
+          {/* <div className="grid grid-cols-1 gap-10 w-3/4 xl:w-1/1 md:grid-cols-2 bg-white px-10 py-6
+        rounded-sm"> */}
+            {/* <button className={stylesButton + " bg-main-green text-white w-40"} onClick={onClick}>Calcular salario</button> */}
+            {/* <h1>Valor a pagar: $ {inputs.payment}</h1> */}
+          {/* </div> */}
           <br />
 					{/* buttons */}
 					<div style={{display: 'flex', justifyContent: 'center'}}>

@@ -14,7 +14,7 @@ const Downloads = () => {
 		<div className="min-h-screen">
 			{/* <StyledDownloads> */}
 			{/* <Menu/> */}
-			<h1>Descarga de recibos de pago</h1>
+			{/* <h1>Descarga de recibos de pago</h1> */}
 			{find && (
 				<PDFViewer className="w-full h-screen">
 					<DocuPDF data={find} />
