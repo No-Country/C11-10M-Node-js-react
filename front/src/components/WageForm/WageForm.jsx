@@ -10,15 +10,16 @@ import Validate from "./Validate";
 const WageForm = () => {
 	const initialState = {
     employeeId: "",
-    nhours: "", 
-		ehours: "",
+    nhours: 0, 
+		ehours: 0,
+    nincome: 0,
     // inc1: 0,
     // inc2: 0,
     // inc3: 0,
     // txt1: "",
     // txt2: "",
     // txt3: "",
-    payment: "",
+    payment: 0,
     plus: "false"
 	};
 
@@ -30,21 +31,34 @@ const WageForm = () => {
   const { allEmployees } = useSelector((s) => s);
 
 	const handleChange = (e) => {
-		setInputs({
-			...inputs,
-			[e.target.name]: e.target.value,
-		});
-		setErrors(
-			Validate({
-				...inputs,
-				[e.target.name]: e.target.value,
-			})
-		);
+    const {name} = e.target.value
+		if(name==="nhours" || name==="ehours" || name==="nincome"){
+      setInputs({
+        ...inputs,
+        [e.target.name]: Number(e.target.value),
+      });
+      setErrors(
+        Validate({
+          ...inputs,
+          [e.target.name]: e.target.value,
+        })
+      );
+    } else{
+      setInputs({
+        ...inputs,
+        [e.target.name]: e.target.value,
+      });
+      setErrors(
+        Validate({
+          ...inputs,
+          [e.target.name]: e.target.value,
+        })
+      );
+    }
 	};
   const onClick = () => {
     setInputs({
-			...inputs,
-			payment: inputs.plus === 'false' ? ((parseInt(inputs.nhours)+parseInt(inputs.ehours*2))*parseInt(inputs.nincome))+(parseInt(inputs.inc1)+parseInt(inputs.inc2)+parseInt(inputs.inc3)) : ((parseInt(inputs.nhours)+parseInt(inputs.ehours*2))*parseInt(inputs.nincome))+(parseInt(inputs.inc1)+parseInt(inputs.inc2)+parseInt(inputs.inc3))+((parseInt(inputs.nhours)+parseInt(inputs.ehours*2))*parseInt(inputs.nincome))*0.2
+			...inputs
 		});
   };
   
@@ -53,31 +67,36 @@ const WageForm = () => {
 
 		const find = Object.values(errors).find((el) => el !== "");
 
-		if (!find) {
-			dispatch(postWage(inputs)).then((data) => {
-				if (data.status && data.status === 200) {
-					swal({
-						title: "Pago registrado",
-						icon: "success",
-					});
-					setInputs(initialState)
-					setErrors(initialState)
-					setFlag(prev=>!prev)
-				} else {
-					swal({
-						title: "Error",
-						text: data.response.data.message,
-						icon: "error",
-					});
-				}
-			});
-		} else {
-			swal({
-				title: "Pago no registrado",
-				text: find,
-				icon: "error",
-			});
-		}
+		// if(inputs?.payment!==0){
+      if (!find) {
+        dispatch(postWage(inputs)).then((data) => {
+          if (data.status && data.status === 200) {
+            swal({
+              title: "Pago registrado",
+              icon: "success",
+            });
+            setInputs(initialState)
+            setErrors(initialState)
+            setFlag(prev=>!prev)
+          } else {
+            swal({
+              title: "Error",
+              text: data.response.data.message,
+              icon: "error",
+            });
+          }
+        });
+      } else {
+        swal({
+          title: "Pago no registrado",
+          text: find,
+          icon: "error",
+        });
+      }
+    // }
+    // else{
+    //   alert("Payment está vacío")
+    // }
 	};
 
 	useEffect(()=>{
@@ -117,7 +136,7 @@ const WageForm = () => {
                   type="number"
                   title={"Basico por hora"}
                   name={"nincome"}
-                  value={inputs?.nincome}
+                  value={inputs?.nincome?.toString()}
                   onChange={handleChange}
                   autofocus={true}                  
                 />
@@ -130,7 +149,7 @@ const WageForm = () => {
                   type="number"
                   title={"Horas Trabajadas"}
                   name={"nhours"}
-                  value={inputs?.nhours}
+                  value={inputs?.nhours?.toString()}
                   onChange={handleChange}
                   autofocus={true}
                 />
@@ -143,7 +162,7 @@ const WageForm = () => {
                   type="number"
                   title={"Horas extra"}
                   name={"ehours"}
-                  value={inputs?.ehours}
+                  value={inputs?.ehours?.toString()}
                   onChange={handleChange}
                   autofocus={true}
                 />

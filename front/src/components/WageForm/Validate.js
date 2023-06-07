@@ -11,8 +11,8 @@ const Validate = (inputs) => {
 		errors.nincome = "Este campo debe estar completo";
 	} else if (isNaN(inputs.nincome)) {
 		errors.nincome = "Debe ser un numero";
-	} else if (parseInt(inputs.nincome) < 2000) {
-		errors.nincome = "El valor no puede ser inferior al salario minimo";
+	} else if (parseInt(inputs.nincome) < 100) {
+		errors.nincome = "El valor no puede ser inferior al salario minimo: 100";
 	}
 
 	//*horas trabajadas

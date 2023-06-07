@@ -7,11 +7,11 @@ const Employees = () => {
 	const stylePadding = "p-2 text-md md:text-xl ";
 	return (
 		<div className=" overflow-hidden">
-			<div className="p-2 bg-input-green min-h-[89vh] overflow-hidden">
+			<div className="p-2 bg-input-green min-h-[93vh] overflow-hidden">
 				<p className="underline pb-2">Empleados registrados:</p>
-				<div className="overflow-x-auto overflow-hidden scroll scroll-smooth ">
+				<div className="overflow-x-auto overflow-hidden scroll scroll-smooth px-4 py-8">
 				{allEmployees.length > 0 ? (
-						<table className="bg-white">
+						<table className="shadow-sm shadow-main-green">
 							<thead className="border-2 ">
 								<tr>
 									<th className={stylePadding}>N°</th>

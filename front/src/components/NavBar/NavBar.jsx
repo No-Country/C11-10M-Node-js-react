@@ -34,7 +34,8 @@ const NavBar = ({setFlag}) => {
 			<nav style={{display: location.pathname==='/login' || location.pathname==='/' ? 'none': ''}} >
 				<div
 					
-					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+					className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4
+					overflow-hidden"
 				>
 					<Link to="/">
 						<img className="h-8 mr-3" src={logo} alt="" />
@@ -103,7 +104,7 @@ const NavBar = ({setFlag}) => {
 									Ingresar
 								</NavLink>
 							</li> : 
-								<div className="text-white hover:text-gray-200 text-xl md:my-0 my-7 ml-5">
+								<div className="text-white hover:text-gray-200 text-xl md:my-0 my-7 md:ml-5">
 									<span className="text-white hover:text-gray-200 font-semibold cursor-pointer" onClick={()=>signOut()}>Cerrar sesión</span>
 								</div>
 							}

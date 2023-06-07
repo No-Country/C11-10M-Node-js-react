@@ -7,9 +7,9 @@ const Home = () => {
   const userName = localStorage.getItem("user");
 
   const imageButton=[
-    {url:"https://i.ibb.co/9N8sfb1/icono-banco.png",
-    name:"Mi perfil",
-    to:"/buildingForm"},
+    // {url:"https://i.ibb.co/9N8sfb1/icono-banco.png",
+    // name:"Mi perfil",
+    // to:"/buildingForm"},
     {url:"https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_empleados_kirz6w.png",
     name:"Mis empleados",
     to:"/employees"},
