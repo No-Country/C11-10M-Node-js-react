@@ -47,7 +47,7 @@ const Home = () => {
 
 
       {/*image button*/}
-      <div className='grid md:grid-cols-2 gap-[0.5em] items-center'>
+      <div className='grid md:grid-cols-3 gap-[0.5em] items-center'>
       
       {btms}
 
