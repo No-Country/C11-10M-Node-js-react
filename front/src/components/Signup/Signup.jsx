@@ -131,16 +131,16 @@ const Signup = () => {
 					<div className="w-full flex justify-between pt-6">
 						<button
 							className={stylesButton + " ml-2 w-[150px]"}
-							onClick={() => navigate("/logIn")}
+							onClick={() => navigate("/home")}
 						>
-							Atrás
+							Ir a home
 						</button>
 						<button
 							className={
 								stylesButton + " bg-main-green text-white px-4 ml-2 w-[150px]"
 							}
 						>
-							Registrarse
+							Registrar
 						</button>
 					</div>
 				</form>

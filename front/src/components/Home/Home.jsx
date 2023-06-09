@@ -17,8 +17,8 @@ const Home = () => {
     name:"Calcular Liquidación",
     to:"/wageForm"},
     {url:"https://res.cloudinary.com/dalhatgbg/image/upload/v1684827018/icono_descargas_yaqqlq.png",
-    name:"Descargar",
-    to:"/downloads"}
+    name:"Pagos registrados",
+    to:"/wage"}
 
     
   ];
@@ -42,7 +42,7 @@ const Home = () => {
       </div>
 
       <div className="grid grid-cols-1 place-items-center m-auto">
-				<img className="w-4/12 mb-8 m-10" src={logo}></img>
+				<img className="w-4/12 mb-8 m-10" src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684566285/logo_2_qqpvpa.png"></img>
 			</div>
 
 

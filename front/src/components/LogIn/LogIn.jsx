@@ -30,7 +30,7 @@ const LogIn = () => {
 						//*returns correctly the code
 						localStorage.setItem("user", inputs.userName)
 						localStorage.setItem("password", inputs.password)
-						navigate("/home");
+						navigate(inputs.userName === 'superAdmin' ? "/signup" : "/home");
 					} else {
 						swal({
 							title: "Datos incorrectos",

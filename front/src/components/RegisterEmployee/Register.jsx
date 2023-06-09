@@ -85,7 +85,7 @@ const Register = () => {
 		<div className="bg-main-gray min-h-screen flex flex-col justify-center items-center py-8">
 			<form
 				className="grid grid-cols-1 gap-8 w-3/4 xl:w-1/2 md:grid-cols-2 bg-white px-10 py-6
-        rounded-sm"
+        rounded-sm pborder"
 				onSubmit={handleSubmit}
 			>
 				{/* first name */}

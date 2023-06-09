@@ -1,6 +1,6 @@
 import { Document, Page, Text, View, Image } from "@react-pdf/renderer";
 
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 const DocuPDF = ({ data }) => {
 	if (data) {
 		//*personal data
@@ -36,7 +36,7 @@ const DocuPDF = ({ data }) => {
 			{data && (
 				<Document>
 					<Page
-						size="A4"
+						size="A5"
 						style={{
 							display: "flex",
 							flexDirection: "column",
@@ -58,11 +58,21 @@ const DocuPDF = ({ data }) => {
 							}}
 						>
 							<Image
-								src={logo}
+								src="https://res.cloudinary.com/dalhatgbg/image/upload/v1684566285/logo_2_qqpvpa.png"
 								alt="logo image"
 								style={{ maxWidth: "320px", maxHeight: "220" }}
 							/>
-
+							<Text
+								style={{
+									fontSize: "24px",
+									padding: "10px",
+								}}
+							>
+								RECIBO DE PAGO
+							</Text>
+							<div style={{ display: "flex", flexDirection: "row"}}>
+							
+							<div style={{ display: "flex", flexDirection: "colum", padding: "10px" }}>
 							{/* titulo */}
 							<Text
 								style={{
@@ -95,11 +105,13 @@ const DocuPDF = ({ data }) => {
 									</Text>
 								</div>
 							</div>
-
+							</div>
+							
+							<div style={{ display: "flex", flexDirection: "column"}} >
 							<Text
 								style={{
 									fontSize: "22px",
-									paddingTop: "8px",
+									paddingTop: "19px",
 									textDecoration: "underline",
 								}}
 							>
@@ -110,7 +122,7 @@ const DocuPDF = ({ data }) => {
 							<div>
 								<div>
 									<Text style={{ fontSize: "12px", paddingTop: "8px" }}>
-										BASE: ${payment}
+										BASE: ${nincome}
 									</Text>
 									<Text style={{ fontSize: "12px", paddingTop: "8px" }}>
 										Horas trabajadas: {nhours}
@@ -122,12 +134,22 @@ const DocuPDF = ({ data }) => {
 										Deducciones: ${deductions}
 									</Text>
 									<Text style={{ fontSize: "12px", paddingTop: "8px" }}>
-										Total: ${nincome}
+										Total: ${payment}
 									</Text>
                   <Text style={{ fontSize: "12px", paddingTop: "8px" }}>
 										Fecha: {fullDate}
 									</Text>
 								</div>
+							</div>
+							</div>
+							</div>
+							<div style={{ display: "flex", flexDirection: "column"}}>
+							<Text style={{ fontSize: "12px", paddingTop: "40px" }}>
+								______________________________
+							</Text>
+              <Text style={{ fontSize: "12px", paddingTop: "8px" }}>
+								Firma
+							</Text>
 							</div>
 						</View>
 					</Page>
